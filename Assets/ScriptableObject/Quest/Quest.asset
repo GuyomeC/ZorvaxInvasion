@@ -13,13 +13,18 @@ MonoBehaviour:
   m_Name: Quest
   m_EditorClassIdentifier: 
   id: 0
-  title: 
-  description: 
-  sentence: []
-  InProgressSentence: []
-  completeSentence: []
+  title: Chat Perdu
+  description: J'ai perdu mon chat il s'appelle picaso
+  sentence:
+  - boo
+  InProgressSentence:
+  - Cherche Picpic
+  completeSentence:
+  - "Tu as trouv\xE9 Picpic"
+  afterQuest:
+  - "Merci d'avoir cherch\xE9 !"
   objectToFind: 
-  actualAmount: 0
-  amountToFind: 0
-  goldToGive: 0
-  statut: 0
+  actualAmount: 2
+  amountToFind: 2
+  goldToGive: 50
+  statut: 2

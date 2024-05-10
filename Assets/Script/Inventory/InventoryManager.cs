@@ -13,6 +13,9 @@ public class InventoryManager: MonoBehaviour
     public GameObject prefabs;
     public GameObject holderDescription;
 
+    public TextMeshProUGUI title, descriptionObject;
+    public Image iconDescription;
+
     public static InventoryManager instance;
 
     private void Awake()
@@ -34,19 +37,28 @@ public class InventoryManager: MonoBehaviour
                 }
             }
 
-            for (int i = 0; i < inventory.Count; i++)
+            for (int i = 0; i < inventoryLenght; i++)
             {
-                slot = Instantiate(prefabs, transform.position, transform.rotation);
-                slot.transform.SetParent(holderSlot.transform);
+                
 
 
-                if (inventory[i] != null)
+                if ( i <= inventory.Count - 1)
                 {
+                    slot = Instantiate(prefabs, transform.position, transform.rotation);
+                    slot.transform.SetParent(holderSlot.transform);
+
                     TextMeshProUGUI amount = slot.transform.Find("Amount").GetComponent<TextMeshProUGUI>();
                     Image img = slot.transform.Find("Icon").GetComponent<Image>();
+                    slot.GetComponent<SlotItem>().itemSlot = i;
 
                     amount.text = inventory[i].amount.ToString();
                     img.sprite = inventory[i].icon;
+                } else if ( i > inventory.Count - 1)
+                {
+                    slot = Instantiate(prefabs, transform.position, transform.rotation);
+                    slot.transform.SetParent(holderSlot.transform);
+                    TextMeshProUGUI amount = slot.transform.Find("Amount").GetComponent<TextMeshProUGUI>();
+                    amount.gameObject.SetActive(false);
                 }
 
             }
@@ -55,5 +67,13 @@ public class InventoryManager: MonoBehaviour
         {
             inventoryPanel.SetActive(false);
         }
+    }
+
+    public void ChargeItem(int i)
+    {
+        holderDescription.SetActive(true);
+        title.text = inventory[i].title;
+        descriptionObject.text = inventory[i].description;
+        iconDescription.sprite = inventory[i].icon;
     }
 }
