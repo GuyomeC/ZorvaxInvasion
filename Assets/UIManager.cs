@@ -9,10 +9,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject victoryUI;
     [SerializeField] private GameObject pausePanel;
 
+    GameManager gm;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gm = GameManager.Instance;
+
     }
 
     // Update is called once per frame
@@ -22,6 +26,12 @@ public class UIManager : MonoBehaviour
         {
             Pause();
         }
+    }
+
+    public void PlayButtonHandler()
+    {
+        gm.StartGame();
+        gm.ResetScore();
     }
 
     public void ActivateGameOverUI()
