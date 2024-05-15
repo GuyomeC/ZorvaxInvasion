@@ -9,7 +9,7 @@ public class Item : ScriptableObject
     public string title;
     public string description;
     public Sprite icon;
-    public int amount, goldToGive, amountToHeal;
+    public int amount, goldToGive, amountToHeal, maxAmount;
     public bool isStackable;
 
     [System.Serializable]

@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HeroController : MonoBehaviour
@@ -5,6 +7,11 @@ public class HeroController : MonoBehaviour
     [Header("Entity")]
     [SerializeField] private HeroEntity _entity;
     private bool _entityWasTouchingGround;
+
+    [Header("Health")]
+    [SerializeField] public int currentHealth;
+    [SerializeField] public int maxHealth;
+
 
     [Header("Jump Buffer")]
     [SerializeField] private float _jumpBufferDuration = 0.2f;
@@ -14,8 +21,23 @@ public class HeroController : MonoBehaviour
     [SerializeField] private float _coyoteTimeDuration = 0.2f;
     [SerializeField] private float _coyoteTimeCountdown = -1f;
 
+    [Header("Attack")]
+    [SerializeField] float timeBetweenAttack;
+    private float attackTime;
+    public bool CanMove;
+    [SerializeField] Transform checkEnemy;
+    public LayerMask whatIsEnemy;
+    public float range;
+
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = false;
+
+    public static HeroController instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void OnGUI()
     {
@@ -31,6 +53,7 @@ public class HeroController : MonoBehaviour
     private void Start()
     {
         _CancelJumpBuffer();
+        currentHealth = maxHealth;
     }
 
     private void Update()
@@ -42,7 +65,8 @@ public class HeroController : MonoBehaviour
         if (_EntityHasExitGround())
         {
             _ResetCoyoteTime();
-        } else
+        }
+        else
         {
             _UpdateCoyoteTime();
         }
@@ -53,38 +77,79 @@ public class HeroController : MonoBehaviour
         }
 
 
-        if (_GetInputDownJump()) {
-            if (_IsCoyoteTimeActive() || _entity.jumpLeft > 0 && !_entity.IsJumpImpulsing) {
+        if (_GetInputDownJump())
+        {
+            if (_IsCoyoteTimeActive() || _entity.jumpLeft > 0 && !_entity.IsJumpImpulsing)
+            {
                 _entity.JumpStart();
                 _entity.jumpLeft -= 1;
-            } else {
+            }
+            else
+            {
                 _ResetJumpBuffer();
             }
         }
-        if (IsJumpBufferActive()) {
-            if (_IsCoyoteTimeActive() || _entity.jumpLeft > 0 && !_entity.IsJumpImpulsing) {
+        if (IsJumpBufferActive())
+        {
+            if (_IsCoyoteTimeActive() || _entity.jumpLeft > 0 && !_entity.IsJumpImpulsing)
+            {
                 _entity.JumpStart();
             }
         }
 
-        if (_entity.IsJumpImpulsing) {
-            if (!_GetInputJump() && _entity.IsJumpMinDurationReached) {
+        if (_entity.IsJumpImpulsing)
+        {
+            if (!_GetInputJump() && _entity.IsJumpMinDurationReached)
+            {
                 _entity.StopJumpImpulsion();
             }
         }
 
-        if (_GetInputDash()) {
+        if (_GetInputDash())
+        {
             _entity._ActivateDash();
         }
+
+        //Attack();
 
         _entity._Dash();
 
         _entityWasTouchingGround = _entity.IsTouchingGround;
     }
 
+    private void Attack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Time.time >= attackTime)
+            {
+                _entity._rigidbody.velocity = Vector3.zero;
+                _entity.animator.SetTrigger("attack");
+                StartCoroutine(Delay());
+                IEnumerator Delay()
+                {
+                    CanMove = false;
+                    yield return new WaitForSeconds(.5f);
+                    CanMove = true;
+                }
+
+                attackTime = Time.time + timeBetweenAttack;
+            }
+        }
+    }
+
+    public void OnAttack()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(checkEnemy.position, 0.5f, whatIsEnemy);
+        foreach (var enemy_ in enemy)
+        {
+            //degat a l'enemy;
+        }
+    }
+
     private bool _GetInputDownJump()
     {
-        if (_entity.canMove) {
+        if (CanMove) {
             return Input.GetKeyDown(KeyCode.Space);
         } else {
             return false;
@@ -92,7 +157,7 @@ public class HeroController : MonoBehaviour
     }
     private bool _GetInputJump()
     {
-        if (_entity.canMove) {
+        if (CanMove) {
             return Input.GetKey(KeyCode.Space);
         } else {
             return false;
@@ -101,7 +166,7 @@ public class HeroController : MonoBehaviour
 
     private bool _GetInputDash()
     {
-        if (_entity.canMove) {
+        if (CanMove) {
             return Input.GetKeyDown(KeyCode.E);
         } else {
             return false;
@@ -111,13 +176,16 @@ public class HeroController : MonoBehaviour
     private float GetInputMoveX()
     {
         float inputMoveX = 0f;
-        if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Q)) && _entity.canMove)
+        if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Q)) && CanMove)
         {
             inputMoveX = -1f;
+            checkEnemy.position = new Vector3(_entity.transform.position.x - range, _entity.transform.position.y, 0);
         }
-        if (Input.GetKey(KeyCode.D) && _entity.canMove)
+        if (Input.GetKey(KeyCode.D) && CanMove)
         {
             inputMoveX = 1f;
+            checkEnemy.position = new Vector3(_entity.transform.position.x + range, _entity.transform.position.y, 0);
+
         }
         return inputMoveX;
     }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4190899094614578173}
   - component: {fileID: 7059971819453474244}
+  - component: {fileID: 4805579677324013113}
   m_Layer: 0
   m_Name: Hero_Controller
   m_TagString: Untagged
@@ -45,7 +46,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 0}
+  currentHealth: 0
+  maxHealth: 3
   _jumpBufferDuration: 0.2
   _coyoteTimeDuration: 0.2
   _coyoteTimeCountdown: -1
+  timeBetweenAttack: 0.5
+  CanMove: 1
+  checkEnemy: {fileID: 0}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 0
   _guiDebug: 0
+--- !u!114 &4805579677324013113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962299786072271053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da1b855ff5353c45bd6401ee301b831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptyPoint: {fileID: 21300000, guid: b664a6db2b940a848b0569d21782c5d7, type: 3}
+  fullPoint: {fileID: 21300000, guid: 9249bed4aa03d2141a6f925877c8395d, type: 3}
+  life1: {fileID: 0}
+  life2: {fileID: 0}
+  life3: {fileID: 0}

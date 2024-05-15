@@ -4,7 +4,8 @@ using UnityEngine.Serialization;
 public class HeroEntity : MonoBehaviour
 {
     [Header("Physics")]
-    [SerializeField] private Rigidbody2D _rigidbody;
+    [SerializeField] public Rigidbody2D _rigidbody;
+    [SerializeField] public Animator animator;
 
     [Header("Horizontal Movements")]
     [FormerlySerializedAs("_mouvementsSetting")]
@@ -12,7 +13,6 @@ public class HeroEntity : MonoBehaviour
     [SerializeField] private HeroHorizontalMovementSettings _airHorizontalMovementsSettings;
     private float _horizontalSpeed = 0f;
     private float _moveDirX = 0f;
-    public bool canMove = true;
 
     [Header("Fall")]
     [SerializeField] private HeroFallSetting _fallSetting;
@@ -169,6 +169,8 @@ public class HeroEntity : MonoBehaviour
         {
             _wallTouch = false;
         }
+
+
         _ApplyHorizontalSpeed();
         _ApplyVerticalSpeed();
     }

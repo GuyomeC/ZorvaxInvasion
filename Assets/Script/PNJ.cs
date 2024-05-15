@@ -50,7 +50,7 @@ public class PNJ : MonoBehaviour
     public void StartDialogue(string[] sentence)
     {
         manager.dialogHolder.SetActive(true);
-        _entity.canMove = false;
+        HeroController.instance.CanMove = false;
         IsOnDial = true;
         TypingText(sentence);
         manager.continueButton.GetComponent<Button>().onClick.RemoveAllListeners();
@@ -88,7 +88,7 @@ public class PNJ : MonoBehaviour
             manager.nameDisplay.text = "";
             manager.dialogHolder.SetActive(false);
 
-            _entity.canMove = true;
+            HeroController.instance.CanMove = true;
         } 
     }
 
