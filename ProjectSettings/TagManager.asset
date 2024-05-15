@@ -15,7 +15,7 @@ TagManager:
   - Ground
   - Walls
   - Pnj
-  - 
+  - Decoration
   - 
   - 
   - 
@@ -42,9 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 28855359
+    locked: 0
   - name: Hero
     uniqueID: 3337845629
     locked: 0
   - name: Pnj
     uniqueID: 2009947485
+    locked: 0
+  - name: Decoration
+    uniqueID: 2484063975
     locked: 0
