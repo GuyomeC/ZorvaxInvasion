@@ -110,6 +110,12 @@ public class HeroController : MonoBehaviour
             _entity._ActivateDash();
         }
 
+        if (currentHealth <= 0)
+        {
+            GameManager.Instance.GameOver();
+            currentHealth = maxHealth;
+        }
+
         //Attack();
 
         _entity._Dash();

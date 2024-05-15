@@ -16,7 +16,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         gm = GameManager.Instance;
-
+        gm.onGameOver.AddListener(ActivateGameOverUI);
+        gm.onVictory.AddListener(ActivateVictoryUI);
     }
 
     // Update is called once per frame
