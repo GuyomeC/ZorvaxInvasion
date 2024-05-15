@@ -16,7 +16,7 @@ TagManager:
   - Walls
   - Pnj
   - Decoration
-  - 
+  - Obstacles
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 28855359
+    locked: 0
+  - name: Obstacles
+    uniqueID: 226924495
     locked: 0
   - name: Hero
     uniqueID: 3337845629
