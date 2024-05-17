@@ -4,7 +4,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
+    [Header("Stat")]
+    [SerializeField] float speed;
+    private float lastPlayerDetectTime;
+    public float playerDetectRate = 0.2f;
+    public float chaseRange;
+
+    [Header("Attack")]
+    [SerializeField] float attackRange;
+    [SerializeField] int damage;
+    [SerializeField] float attackRate;
+    private float lastAttackTime;
+
+    [Header("Component")]
+    Rigidbody2D rb;
+    private HeroEntity targetPlayer;
     Animator animator;
+
 
     private void Start()
     {
@@ -15,7 +32,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            animator.SetTrigger("PlayerIsHere");
+            animator.SetTrigger("attack");
         }
     }
 
@@ -23,7 +40,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            animator.SetTrigger("PlayerIsHere");
+            animator.SetTrigger("attack");
         }
     }
 }
