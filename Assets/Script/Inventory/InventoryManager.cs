@@ -62,9 +62,6 @@ public class InventoryManager: MonoBehaviour
 
         for (int i = 0; i < inventoryLenght; i++)
         {
-
-
-
             if (i <= inventory.Count - 1)
             {
                 slot = Instantiate(prefabs, transform.position, transform.rotation);

@@ -116,7 +116,7 @@ public class HeroController : MonoBehaviour
             currentHealth = maxHealth;
         }
 
-        //Attack();
+        Attack();
 
         _entity._Dash();
 
@@ -130,12 +130,14 @@ public class HeroController : MonoBehaviour
             if (Time.time >= attackTime)
             {
                 _entity._rigidbody.velocity = Vector3.zero;
-                _entity.animator.SetTrigger("attack");
+                Debug.Log("debut datk");
+                //_entity.animator.SetTrigger("attack");
                 StartCoroutine(Delay());
                 IEnumerator Delay()
                 {
                     CanMove = false;
                     yield return new WaitForSeconds(.5f);
+                    Debug.Log("atk");
                     CanMove = true;
                 }
 
@@ -185,12 +187,12 @@ public class HeroController : MonoBehaviour
         if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Q)) && CanMove)
         {
             inputMoveX = -1f;
-            checkEnemy.position = new Vector3(_entity.transform.position.x - range, _entity.transform.position.y, 0);
+            checkEnemy.position = new Vector2(_entity.transform.position.x - range, _entity.transform.position.y);
         }
         if (Input.GetKey(KeyCode.D) && CanMove)
         {
             inputMoveX = 1f;
-            checkEnemy.position = new Vector3(_entity.transform.position.x + range, _entity.transform.position.y, 0);
+            checkEnemy.position = new Vector2(_entity.transform.position.x + range, _entity.transform.position.y);
 
         }
         return inputMoveX;

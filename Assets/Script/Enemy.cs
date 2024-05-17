@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
     [Header("Stat")]
     [SerializeField] float speed;
+    [SerializeField] int currentHp;
+    private int maxHp = 10;
     private float lastPlayerDetectTime;
     public float playerDetectRate = 0.2f;
     public float chaseRange;
@@ -26,6 +27,8 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        currentHp = maxHp;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
