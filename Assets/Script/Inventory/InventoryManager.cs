@@ -131,8 +131,11 @@ public class InventoryManager: MonoBehaviour
     {
         for(int x = 0; x < amountToUse; x++)
         {
-            HeroController.instance.currentHealth += inventory[i].amountToHeal;
-            if(inventory[i].amount == 1)
+            if (inventory[i].title == "Coeur")
+                HeroController.instance.currentHealth += inventory[i].amountToHeal;
+            if(inventory[i].title == "Money")
+                HeroController.instance.currentMoney += inventory[i].amountToHeal;
+            if (inventory[i].amount == 1)
             {
                 inventory.Remove(inventory[i]);
                 holderDescription.SetActive(false);
