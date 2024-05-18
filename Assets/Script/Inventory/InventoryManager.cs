@@ -8,6 +8,7 @@ public class InventoryManager: MonoBehaviour
 {
     [Header("Entity")]
     [SerializeField] private HeroEntity _entity;
+    [SerializeField] private HeroController _heroController;
 
     public List<Item> inventory;
     public int inventoryLenght = 24;
@@ -30,6 +31,7 @@ public class InventoryManager: MonoBehaviour
 
     public static InventoryManager instance;
 
+
     private void Awake()
     {
         instance = this;
@@ -42,11 +44,14 @@ public class InventoryManager: MonoBehaviour
         {
             inventoryPanel.SetActive(true);
             RefreshInventaire();
+            _heroController.CanMove = false;
 
         }
         else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
         {
             inventoryPanel.SetActive(false);
+            _heroController.CanMove = true;
+
         }
     }
 

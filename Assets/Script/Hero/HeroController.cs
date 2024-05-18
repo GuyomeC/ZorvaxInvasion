@@ -66,6 +66,8 @@ public class HeroController : MonoBehaviour
 
         _entity.SetMoveDirX(GetInputMoveX());
 
+        _entity.UpdateAnimationState();
+
         if (_EntityHasExitGround())
         {
             _ResetCoyoteTime();
@@ -129,7 +131,7 @@ public class HeroController : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && CanMove)
         {
             if (Time.time >= attackTime)
             {

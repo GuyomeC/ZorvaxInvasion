@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.U2D;
 
 public class HeroEntity : MonoBehaviour
 {
     [Header("Physics")]
     [SerializeField] public Rigidbody2D _rigidbody;
     [SerializeField] public Animator animator;
+    [SerializeField] public SpriteRenderer sprite;
+    public enum MovementState { idle, running }
+    public MovementState state = MovementState.idle;
 
     [Header("Horizontal Movements")]
     [FormerlySerializedAs("_mouvementsSetting")]
@@ -359,6 +363,23 @@ public class HeroEntity : MonoBehaviour
             _timeBetweenWallTouch -= Time.fixedDeltaTime;
             _wallTouch = true;
         }
+    }
+
+    public void UpdateAnimationState()
+    {
+
+        MovementState state;
+
+
+        if (_horizontalSpeed > 0f)
+        {
+            state = MovementState.running;
+        }
+        else
+        {
+            state = MovementState.idle;
+        }
+        animator.SetInteger("state", (int)state);
     }
 
     private void OnGUI()

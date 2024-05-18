@@ -7,11 +7,13 @@ using TMPro;
 
 public class MoneyManager : MonoBehaviour
 {
+
+    [SerializeField] private HeroController _heroController;
     public TextMeshProUGUI currentMoneyOnUI;
 
     void Update()
     {
-        currentMoneyOnUI = transform.Find("CurrentMoney").GetComponent<TextMeshProUGUI>();
+        currentMoneyOnUI.text = _heroController.currentMoney.ToString();
     }
 
 

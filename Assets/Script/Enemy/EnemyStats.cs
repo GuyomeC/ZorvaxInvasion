@@ -14,6 +14,6 @@ public class EnemyStats : MonoBehaviour
 
     public void InitializeBar()
     {
-        this currentHealth = this.currentHealth;
+        //this currentHealth = this.currentHealth;
     }
 }
