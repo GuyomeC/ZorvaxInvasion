@@ -8,7 +8,7 @@ public class HeroEntity : MonoBehaviour
     [SerializeField] public Rigidbody2D _rigidbody;
     [SerializeField] public Animator animator;
     [SerializeField] public SpriteRenderer sprite;
-    public enum MovementState { idle, running }
+    public enum MovementState { idle, running, jump_up, jump_down }
     public MovementState state = MovementState.idle;
 
     [Header("Horizontal Movements")]
@@ -234,6 +234,8 @@ public class HeroEntity : MonoBehaviour
     private void Update()
     {
         _UpdateOrientVisual();
+
+        
     }
 
     private void _UpdateJumpStateImpulsion()
@@ -378,6 +380,14 @@ public class HeroEntity : MonoBehaviour
         else
         {
             state = MovementState.idle;
+        }
+        if (_verticalSpeed > 0f)
+        {
+            state = MovementState.jump_up;
+        }
+        else
+        {
+              state = MovementState.jump_down;
         }
         animator.SetInteger("state", (int)state);
     }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd51046be7845e4a83e71329bb50d0c, type: 3}
   m_Name: Money
   m_EditorClassIdentifier: 
-  title: Money
-  description: Argent pour la boutique
+  title: Cores
+  description: "Cores pour l'arbre de comp\xE9tences"
   icon: {fileID: 21300000, guid: ea052f243ca367f45b1b6e68befad7db, type: 3}
   amount: 0
   goldToGive: 0
@@ -21,4 +21,4 @@ MonoBehaviour:
   maxAmount: 10
   nbrStack: 3
   isStackable: 1
-  type: 1
+  type: 3

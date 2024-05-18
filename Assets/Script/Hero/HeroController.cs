@@ -10,11 +10,7 @@ public class HeroController : MonoBehaviour
 
     [Header("Health")]
     [SerializeField] public int currentHealth;
-    [SerializeField] public int maxHealth = 3;
-
-    [Header("Cores")]
-    [SerializeField] public int currentCores;
-    private int maxCores = 200;
+    [SerializeField] public int maxHealth = 3;    
 
     [Header("Jump Buffer")]
     [SerializeField] private float _jumpBufferDuration = 0.2f;
@@ -57,7 +53,6 @@ public class HeroController : MonoBehaviour
     {
         _CancelJumpBuffer();
         currentHealth = maxHealth;
-        currentCores = 0;
     }
 
     private void Update()
@@ -79,7 +74,11 @@ public class HeroController : MonoBehaviour
 
         if (_entity.IsTouchingGround)
         {
+            _entity.animator.SetBool("jump", false);
             _entity.jumpLeft = 2;
+        } else
+        {
+            _entity.animator.SetBool("jump", true);
         }
 
 
@@ -89,10 +88,12 @@ public class HeroController : MonoBehaviour
             {
                 _entity.JumpStart();
                 _entity.jumpLeft -= 1;
+
             }
             else
             {
                 _ResetJumpBuffer();
+
             }
         }
         if (IsJumpBufferActive())

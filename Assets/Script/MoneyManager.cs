@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-
 
 public class MoneyManager : MonoBehaviour
 {
-
-    [SerializeField] private HeroController _heroController;
+    [SerializeField] public int currentCores;
     public TextMeshProUGUI currentMoneyOnUI;
 
-    void Update()
+    private void Start()
     {
-        currentMoneyOnUI.text = _heroController.currentMoney.ToString();
+        currentMoneyOnUI.text = currentCores.ToString();
+    }
+
+
+    void OnTriggerEnter2D(Collider2D truc)
+    {
+        if (truc.tag == "Coin")
+        {
+            currentCores++;
+            currentMoneyOnUI.text = currentCores.ToString();
+            Destroy(truc.gameObject);
+        }
     }
 
 
