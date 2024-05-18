@@ -15,9 +15,10 @@ MonoBehaviour:
   title: Money
   description: Argent pour la boutique
   icon: {fileID: 21300000, guid: ea052f243ca367f45b1b6e68befad7db, type: 3}
-  amount: 5
+  amount: 0
   goldToGive: 0
   amountToHeal: 5
   maxAmount: 10
+  nbrStack: 3
   isStackable: 1
   type: 1

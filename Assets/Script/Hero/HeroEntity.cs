@@ -371,7 +371,7 @@ public class HeroEntity : MonoBehaviour
         MovementState state;
 
 
-        if (_horizontalSpeed > 0f)
+        if (_horizontalSpeed > 1f)
         {
             state = MovementState.running;
         }

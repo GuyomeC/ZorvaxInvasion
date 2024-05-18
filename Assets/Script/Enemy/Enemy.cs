@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            animator.SetTrigger("attack");
+            animator.SetTrigger("run");
         }
     }
 }

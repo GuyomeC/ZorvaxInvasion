@@ -37,6 +37,11 @@ public class InventoryManager: MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -136,7 +141,7 @@ public class InventoryManager: MonoBehaviour
     {
         for(int x = 0; x < amountToUse; x++)
         {
-            if (inventory[i].title == "Coeur")
+            if (inventory[i].title == "Coeur" && HeroController.instance.currentHealth < 3)
                 HeroController.instance.currentHealth += inventory[i].amountToHeal;
             if(inventory[i].title == "Money")
                 HeroController.instance.currentMoney += inventory[i].amountToHeal;
@@ -153,8 +158,10 @@ public class InventoryManager: MonoBehaviour
             }
         }
         RefreshInventaire();
-        valueToUse.text = amountToUse + "/" + inventory[i].maxAmount;
-
+        if (i < inventory.Count)
+        {
+            valueToUse.text = amountToUse + "/" + inventory[i].maxAmount;
+        }
     }
 
     public void RemoveItem(int i)
@@ -174,7 +181,10 @@ public class InventoryManager: MonoBehaviour
             }
         }
         RefreshInventaire();
-        valueToUse.text = amountToUse + "/" + inventory[i].maxAmount;
+        if (i < inventory.Count)
+        {
+            valueToUse.text = amountToUse + "/" + inventory[i].maxAmount;
+        }
 
     }
 
@@ -188,7 +198,7 @@ public class InventoryManager: MonoBehaviour
     public void MoinsButton(int i)
     {
         if (amountToUse > 0)
-            amountToUse++;
+            amountToUse--;
         valueToUse.text = amountToUse + "/" + inventory[i].maxAmount;
     }
 }

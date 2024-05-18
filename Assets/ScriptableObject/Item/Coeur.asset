@@ -15,9 +15,10 @@ MonoBehaviour:
   title: Coeur
   description: Redonnes de la vie
   icon: {fileID: 21300000, guid: 9249bed4aa03d2141a6f925877c8395d, type: 3}
-  amount: 1
+  amount: 0
   goldToGive: 0
   amountToHeal: 1
   maxAmount: 10
+  nbrStack: 3
   isStackable: 1
   type: 1

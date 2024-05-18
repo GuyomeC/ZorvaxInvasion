@@ -10,7 +10,7 @@ public class HeroController : MonoBehaviour
 
     [Header("Health")]
     [SerializeField] public int currentHealth;
-    [SerializeField] public int maxHealth;
+    [SerializeField] public int maxHealth = 3;
 
     [Header("Money")]
     [SerializeField] public int currentMoney;
