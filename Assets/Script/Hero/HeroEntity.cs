@@ -22,7 +22,7 @@ public class HeroEntity : MonoBehaviour
     [SerializeField] private HeroFallSetting _fallSetting;
 
     [Header("Vertical Movements")]
-    private float _verticalSpeed = 0f;
+    public float _verticalSpeed = 0f;
 
     [Header("Wall Slide")]
     [SerializeField] private HeroWallSlideSettings _wallSlideSettings;
@@ -86,7 +86,7 @@ public class HeroEntity : MonoBehaviour
             if (!IsTouchingGround)
             {
                 recupGravity = _jumpFallSettings.fallGravity;
-                _jumpFallSettings.fallGravity = 0f;
+                _ResetVerticalSpeed();
                 _horizontalSpeed = _dashSetting.speed + 15f;
                 _jumpFallSettings.fallGravity = recupGravity;
                 _dashSetting.isDashing = true;

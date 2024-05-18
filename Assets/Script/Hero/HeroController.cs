@@ -74,11 +74,9 @@ public class HeroController : MonoBehaviour
 
         if (_entity.IsTouchingGround)
         {
-            _entity.animator.SetBool("jump", false);
             _entity.jumpLeft = 2;
         } else
         {
-            _entity.animator.SetBool("jump", true);
         }
 
 
