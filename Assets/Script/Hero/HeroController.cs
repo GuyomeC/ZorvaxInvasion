@@ -12,9 +12,9 @@ public class HeroController : MonoBehaviour
     [SerializeField] public int currentHealth;
     [SerializeField] public int maxHealth = 3;
 
-    [Header("Money")]
-    [SerializeField] public int currentMoney;
-    private int maxMoney = 200;
+    [Header("Cores")]
+    [SerializeField] public int currentCores;
+    private int maxCores = 200;
 
     [Header("Jump Buffer")]
     [SerializeField] private float _jumpBufferDuration = 0.2f;
@@ -57,7 +57,7 @@ public class HeroController : MonoBehaviour
     {
         _CancelJumpBuffer();
         currentHealth = maxHealth;
-        currentMoney = 0;
+        currentCores = 0;
     }
 
     private void Update()
