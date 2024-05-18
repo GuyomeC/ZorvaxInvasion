@@ -56,7 +56,8 @@ MonoBehaviour:
   checkEnemy: {fileID: 0}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
+  range: 1.5
   _guiDebug: 0
 --- !u!114 &4805579677324013113
 MonoBehaviour:
