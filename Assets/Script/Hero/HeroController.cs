@@ -24,6 +24,7 @@ public class HeroController : MonoBehaviour
     [SerializeField] float timeBetweenAttack;
     private float attackTime;
     public bool CanMove;
+    public int damage;
     [SerializeField] Transform checkEnemy;
     public LayerMask whatIsEnemy;
     public float range;
@@ -130,19 +131,20 @@ public class HeroController : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetMouseButtonDown(0) && CanMove)
+        if (Input.GetMouseButtonDown(0) && CanMove && _entity.IsTouchingGround)
         {
             if (Time.time >= attackTime)
             {
                 _entity._rigidbody.velocity = Vector3.zero;
-                Debug.Log("debut datk");
-                //_entity.animator.SetTrigger("attack");
+                _entity.animator.SetTrigger("attack");
+                _entity._horizontalSpeed = 0;
+                OnAttack();
                 StartCoroutine(Delay());
                 IEnumerator Delay()
                 {
                     CanMove = false;
-                    yield return new WaitForSeconds(.5f);
-                    Debug.Log("atk");
+                    yield return new WaitForSeconds(1f);
+                    _entity.animator.SetTrigger("endAttack");
                     CanMove = true;
                 }
 
@@ -156,7 +158,7 @@ public class HeroController : MonoBehaviour
         Collider2D[] enemy = Physics2D.OverlapCircleAll(checkEnemy.position, 0.5f, whatIsEnemy);
         foreach (var enemy_ in enemy)
         {
-            //degat a l'enemy;
+            enemy_.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 

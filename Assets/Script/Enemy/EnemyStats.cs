@@ -14,6 +14,26 @@ public class EnemyStats : MonoBehaviour
 
     public void InitializeBar()
     {
-        //this currentHealth = this.currentHealth;
+        this.currentHealth = this.maxHealth;
+        life.fillAmount = this.maxHealth;
+    }
+
+    public void UpdateHealthBar(int value)
+    {
+        life.fillAmount = (float)value / maxHealth;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        Animator anim;
+        anim = GetComponent<Animator>();
+        anim.SetTrigger("Hit");
+        UpdateHealthBar(currentHealth);
+        healthBar.SetActive(true);
+        if(currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

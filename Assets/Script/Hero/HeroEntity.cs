@@ -15,7 +15,7 @@ public class HeroEntity : MonoBehaviour
     [FormerlySerializedAs("_mouvementsSetting")]
     [SerializeField] private HeroHorizontalMovementSettings _groundHorizontalMovementsSettings;
     [SerializeField] private HeroHorizontalMovementSettings _airHorizontalMovementsSettings;
-    private float _horizontalSpeed = 0f;
+    public float _horizontalSpeed = 0f;
     private float _moveDirX = 0f;
 
     [Header("Fall")]

@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : EnemyStats
 {
     [Header("Stat")]
-    [SerializeField] int currentHp;
-    private int maxHp = 10;
     private float lastPlayerDetectTime;
     public float playerDetectRate = 0.2f;
-    public float chaseRange;
-
+ 
     [Header("Attack")]
     [SerializeField] float attackRange;
-    [SerializeField] int damage;
     [SerializeField] float attackRate;
     private float lastAttackTime;
+    public Transform attackPoint;
+    public LayerMask playerLayerMask;
 
     [Header("Component")]
     Rigidbody2D rb;
@@ -27,7 +25,6 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        currentHp = maxHp;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
