@@ -34,7 +34,13 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            OpenPerksTree();
+            if (!perkPanel.activeInHierarchy)
+            {
+                OpenPerksTree();
+            } else
+            {
+                ClosePerksTree();
+            }
         }
     }
 
@@ -63,6 +69,11 @@ public class UIManager : MonoBehaviour
     public void OpenPerksTree()
     {
         perkPanel.SetActive(true);
+    }
+
+    public void ClosePerksTree()
+    {
+        perkPanel.SetActive(false);
     }
 
     public void Restart()

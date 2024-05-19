@@ -37,6 +37,7 @@ public class HeroEntity : MonoBehaviour
 
     [Header("Dash")]
     [SerializeField] private HeroDashSettings _dashSetting;
+    public bool haveDash = false;
 
     [Header("Orientation")]
     [SerializeField] private Transform _orientVisualRoot;
@@ -82,7 +83,7 @@ public class HeroEntity : MonoBehaviour
 
     public void _ActivateDash()
     {
-        if (_dashSetting.dashTimer < _dashSetting.duration) {
+        if (_dashSetting.dashTimer < _dashSetting.duration && haveDash) {
             if (!IsTouchingGround)
             {
                 recupGravity = _jumpFallSettings.fallGravity;
