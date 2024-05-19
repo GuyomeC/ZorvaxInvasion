@@ -21,9 +21,10 @@ public class PerkShop : MonoBehaviour
 
     public void BuyDash()
     {
-        if (_entity.haveDash == false)
+        if (_entity.haveDash == false && MoneyManager.instance.currentCores >= 3)
         {
             _entity.haveDash = true;
+            MoneyManager.instance.currentCores -= 3;
         } else
         {
             return;

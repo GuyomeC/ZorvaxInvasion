@@ -8,11 +8,17 @@ public class MoneyManager : MonoBehaviour
     [SerializeField] public int currentCores;
     public TextMeshProUGUI currentMoneyOnUI;
 
+    public static MoneyManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         currentMoneyOnUI.text = currentCores.ToString();
     }
-
 
     void OnTriggerEnter2D(Collider2D truc)
     {
@@ -23,6 +29,4 @@ public class MoneyManager : MonoBehaviour
             Destroy(truc.gameObject);
         }
     }
-
-
 }

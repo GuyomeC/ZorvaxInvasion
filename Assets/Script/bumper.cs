@@ -24,6 +24,5 @@ public class bumper : MonoBehaviour
     IEnumerator bumping(GameObject player) {
         yield return new WaitForSeconds(bumpTime);
         Debug.Log("tes plus bumper");
-
     }
 }
