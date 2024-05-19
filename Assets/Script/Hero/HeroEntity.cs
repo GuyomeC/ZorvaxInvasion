@@ -235,8 +235,6 @@ public class HeroEntity : MonoBehaviour
     private void Update()
     {
         _UpdateOrientVisual();
-
-        
     }
 
     private void _UpdateJumpStateImpulsion()
@@ -370,9 +368,7 @@ public class HeroEntity : MonoBehaviour
 
     public void UpdateAnimationState()
     {
-
         MovementState state;
-
 
         if (_horizontalSpeed > 1f)
         {
@@ -406,16 +402,11 @@ public class HeroEntity : MonoBehaviour
         } else {
             GUILayout.Label("InAir");
         }
-        if (IsTouchingLeftWall)
-        {
+        if (IsTouchingLeftWall) {
             GUILayout.Label("onLeftWall");
-        }
-        else if (IsTouchingRightWall)
-        {
+        } else if (IsTouchingRightWall) {
             GUILayout.Label("onRightWall");
-        }
-        else
-        {
+        } else {
             GUILayout.Label("OnGround");
         }
         GUILayout.Label($"JumpState = {_jumpState}");
