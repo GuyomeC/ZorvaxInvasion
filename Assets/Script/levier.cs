@@ -21,13 +21,13 @@ public class levier : MonoBehaviour {
 
     // Tant que le joueur reste dans ce trigger, si il appuis sur la touche "E" du clavier, ça lance la fonction "ouverture" qui se trouve sur cette porte
     void OnTriggerEnter2D(Collider2D truc) {        
-        if (truc.tag == "Player") {
+        if (truc.tag == "CameraTriggerTarget") {
             inTrigger = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D truc) {
-        if (truc.tag == "Player") {
+        if (truc.tag == "CameraTriggerTarget") {
             inTrigger = false;
         }
     }

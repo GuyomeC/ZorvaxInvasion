@@ -20,6 +20,11 @@ public class MoneyManager : MonoBehaviour
         currentMoneyOnUI.text = currentCores.ToString();
     }
 
+    private void Update()
+    {
+        currentMoneyOnUI.text = currentCores.ToString();
+    }
+
     void OnTriggerEnter2D(Collider2D truc)
     {
         if (truc.tag == "Coin")

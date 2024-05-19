@@ -49,7 +49,8 @@ public class HeroEntity : MonoBehaviour
     [SerializeField] private HeroHorizontalMovementSettings _jumpHorizontalMovementsSettings;
     private HeroJumpSettings _jumpSettings;
     private float recupGravity;
-    public int jumpLeft = 1;
+    public int jumpUse = 0;
+    public int maxJumpUse = 1;
 
 
     private CameraFollowable _cameraFollowable;
@@ -159,7 +160,7 @@ public class HeroEntity : MonoBehaviour
         if ((IsTouchingLeftWall || IsTouchingRightWall) && !IsTouchingGround)
         {
             _ApplyWallSlideGravity(_wallSlideSettings);
-            jumpLeft = 1;
+            jumpUse ++;
             if (IsJumping)
             {
                 _UpdateJump();
@@ -240,15 +241,15 @@ public class HeroEntity : MonoBehaviour
     private void _UpdateJumpStateImpulsion()
     {
         _jumpTimer += Time.fixedDeltaTime;
-        if (_jumpTimer < allJumpSettings[0].jumpMaxDuration && jumpLeft == 2)
+        if (_jumpTimer < allJumpSettings[0].jumpMaxDuration && jumpUse == 0)
         {
             _verticalSpeed = allJumpSettings[0].jumpSpeed;
         }
-        else if (_jumpTimer < allJumpSettings[1].jumpMaxDuration && jumpLeft == 1)
+        else if (_jumpTimer < allJumpSettings[1].jumpMaxDuration && jumpUse == 1)
         {
             _verticalSpeed = allJumpSettings[1].jumpSpeed;
         }
-        else if (_jumpTimer < allJumpSettings[2].jumpMaxDuration && jumpLeft == 0)
+        else if (_jumpTimer < allJumpSettings[2].jumpMaxDuration && jumpUse == 2)
         {
             _verticalSpeed = allJumpSettings[2].jumpSpeed;
         } else

@@ -9,11 +9,19 @@ public class PerkShop : MonoBehaviour
     [SerializeField] private HeroEntity _entity;
 
     public TextMeshProUGUI texteDash;
+    public string takeDash = "Dash";
     public TextMeshProUGUI texteJumpNiveau1;
     public string jumpNv1 = "Double Jump";
     public TextMeshProUGUI texteJumpNiveau2;
     public string jumpNv2 = "Triple Jump";
 
+
+    private void Start()
+    {
+        texteJumpNiveau2.text = jumpNv2;
+        texteJumpNiveau1.text = jumpNv1;
+        texteDash.text = takeDash;
+    }
 
     public void BuyDash()
     {
@@ -29,11 +37,11 @@ public class PerkShop : MonoBehaviour
 
     public void BuyJumpNv1()
     {
-        if (_entity.haveDash == false && MoneyManager.instance.currentCores >= 3)
+        if (MoneyManager.instance.currentCores >= 3 && !HeroController.instance.haveJumpNv1)
         {
             HeroController.instance.haveJumpNv1 = true;
+            _entity.maxJumpUse++;
             MoneyManager.instance.currentCores -= 3;
-            texteJumpNiveau1.text = jumpNv1;
         }
         else
         {
@@ -43,11 +51,11 @@ public class PerkShop : MonoBehaviour
 
     public void BuyJumpNv2()
     {
-        if (_entity.haveDash == false && MoneyManager.instance.currentCores >= 3 && HeroController.instance.haveJumpNv1 == true)
+        if (MoneyManager.instance.currentCores >= 3 && HeroController.instance.haveJumpNv1 && !HeroController.instance.haveJumpNv2)
         {
             HeroController.instance.haveJumpNv2 = true;
+            _entity.maxJumpUse++;
             MoneyManager.instance.currentCores -= 3;
-            texteJumpNiveau2.text = jumpNv2;
         }
         else
         {

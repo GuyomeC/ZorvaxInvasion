@@ -77,24 +77,15 @@ public class HeroController : MonoBehaviour
 
         if (_entity.IsTouchingGround)
         {
-            if (haveJumpNv1 == true)
-            {
-                _entity.jumpLeft = 2;
-            } else if (haveJumpNv2 == true)
-            {
-                _entity.jumpLeft = 3;
-            } else
-            {
-                _entity.jumpLeft = 1;
-            }
+            _entity.jumpUse = 0;
         }
 
         if (_GetInputDownJump())
         {
-            if (_IsCoyoteTimeActive() || _entity.jumpLeft > 0 && !_entity.IsJumpImpulsing)
+            if (_IsCoyoteTimeActive() || _entity.jumpUse < _entity.maxJumpUse && !_entity.IsJumpImpulsing)
             {
+                _entity.jumpUse ++;
                 _entity.JumpStart();
-                _entity.jumpLeft -= 1;
             }
             else
             {
@@ -103,10 +94,10 @@ public class HeroController : MonoBehaviour
         }
         if (IsJumpBufferActive())
         {
-            if (_IsCoyoteTimeActive() || _entity.jumpLeft > 0 && !_entity.IsJumpImpulsing)
+            if (_IsCoyoteTimeActive() || _entity.jumpUse < _entity.maxJumpUse && !_entity.IsJumpImpulsing)
             {
+                _entity.jumpUse ++;
                 _entity.JumpStart();
-                _entity.jumpLeft -= 1;
             }
         }
 
