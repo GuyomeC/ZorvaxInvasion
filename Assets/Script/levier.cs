@@ -14,7 +14,7 @@ public class levier : MonoBehaviour {
         if (inTrigger) {
             if (Input.GetKeyDown(KeyCode.R)) {
                 porte.GetComponent<porte>().ouverture();
-                GetComponent<Animator>().SetTrigger("activation");
+                //GetComponent<Animator>().SetTrigger("activation");
             }
         }
     }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : EnemyStats
 {
+    [SerializeField] private ennemiPatrol partol;
+
     [Header("Stat")]
     private float lastPlayerDetectTime;
     public float playerDetectRate = 0.2f;
@@ -25,6 +27,7 @@ public class Enemy : EnemyStats
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,6 +35,8 @@ public class Enemy : EnemyStats
         if (collision.tag == "Player")
         {
             animator.SetTrigger("attack");
+            partol.speed = 0f;
+            partol.isAttacking = true;
         }
     }
 
@@ -40,6 +45,8 @@ public class Enemy : EnemyStats
         if (collision.tag == "Player")
         {
             animator.SetTrigger("run");
+            partol.speed = 2f;
+            partol.isAttacking = false;
         }
     }
 }

@@ -14,6 +14,7 @@ public class ennemiPatrol : MonoBehaviour
     private Rigidbody2D rb;                                             // Le rigidbody de l'ennemi
     private float direction = 1f;                                       // Direction vers laquelle l'ennemi se dirige (1 = droite, -1 = gauche)
     private SpriteRenderer skin;                                        // Le sprite de l'ennemi, pour qu'on puisse le retourner quand il change de direction
+    public bool isAttacking = false;
 
     // Au lancement du jeu, on enregistre le rigidbody et le sprite de l'ennemi
     // On transforme aussi les valeurs de limite Droite et Gauche en coordonnées réelles
@@ -28,17 +29,17 @@ public class ennemiPatrol : MonoBehaviour
 
     void Update() {
         // Si l'ennemi se coince contre quelque chose (sa vitesse plus petite que 0.1 m/s) alors il se retourne
-        if (Mathf.Abs(rb.velocity.x) < 0.1f) {
+        if (Mathf.Abs(rb.velocity.x) < 0.1f && !isAttacking) {
             direction = -direction;
         }
         
         //Si il dépasse sa limite Droite, il se retourne
-        if (transform.position.x > limiteDroitePosition.x) {
+        if (transform.position.x > limiteDroitePosition.x && !isAttacking) {
             direction = -1f;
         }
 
         //Si il dépasse sa limite gauche, il se retourne
-        if (transform.position.x < limiteGauchePosition.x) {
+        if (transform.position.x < limiteGauchePosition.x && !isAttacking) {
             direction = 1f;
         }
 

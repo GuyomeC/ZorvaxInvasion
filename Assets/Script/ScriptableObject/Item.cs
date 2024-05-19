@@ -16,7 +16,7 @@ public class Item : ScriptableObject
     [System.Serializable]
     public enum Type
     {
-        Quest, Consommable, Commun, Cores
+        Quest, Consommable, Commun
     }
 
     public Type type;

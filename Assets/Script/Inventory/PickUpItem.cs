@@ -8,7 +8,7 @@ public class PickUpItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "CameraTriggerTarget")
         {
             bool itemFound = false;
             for (int i = 0; i < InventoryManager.instance.inventory.Count; i++)
@@ -26,8 +26,6 @@ public class PickUpItem : MonoBehaviour
                 InventoryManager.instance.inventory.Add(item);
                 item.amount = item.nbrStack;
             }
-
-            Debug.Log("j'ai ajouté " + item.nbrStack + " " + item.title + " dans l'inventaire");
             Destroy(gameObject);
         }
     }

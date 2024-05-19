@@ -6,17 +6,11 @@ using UnityEngine.UI;
 public class EnemyStats : MonoBehaviour
 {
     public int damage;
-    protected int currentHealth;
+    public int currentHealth;
     public int maxHealth;
 
     public GameObject healthBar;
     public Image life;
-
-    public void InitializeBar()
-    {
-        this.currentHealth = this.maxHealth;
-        life.fillAmount = this.maxHealth;
-    }
 
     public void UpdateHealthBar(int value)
     {
@@ -31,7 +25,8 @@ public class EnemyStats : MonoBehaviour
         anim.SetTrigger("Hit");
         UpdateHealthBar(currentHealth);
         healthBar.SetActive(true);
-        if(currentHealth <= 0)
+        anim.SetTrigger("attack");
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }

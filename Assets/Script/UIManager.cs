@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject victoryUI;
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject perkPanel;
 
     GameManager gm;
 
@@ -29,6 +30,11 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            OpenPerksTree();
         }
     }
 
@@ -52,7 +58,11 @@ public class UIManager : MonoBehaviour
     {
         pausePanel.SetActive(true);
         Time.timeScale = 0;
+    }
 
+    public void OpenPerksTree()
+    {
+        perkPanel.SetActive(true);
     }
 
     public void Restart()
