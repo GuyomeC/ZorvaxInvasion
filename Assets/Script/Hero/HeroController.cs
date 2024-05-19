@@ -15,6 +15,8 @@ public class HeroController : MonoBehaviour
     [Header("Jump Buffer")]
     [SerializeField] private float _jumpBufferDuration = 0.2f;
     private float _jumpBufferTimer = 0f;
+    public bool haveJumpNv1 = false;
+    public bool haveJumpNv2 = false;
 
     [Header("Coyote Time")]
     [SerializeField] private float _coyoteTimeDuration = 0.2f;
@@ -75,9 +77,13 @@ public class HeroController : MonoBehaviour
 
         if (_entity.IsTouchingGround)
         {
-            _entity.jumpLeft = 2;
-        } else
-        {
+            if (haveJumpNv1 == true)
+            {
+                _entity.jumpLeft = 2;
+            } else if (haveJumpNv2 == true)
+            {
+                _entity.jumpLeft = 1;
+            }
         }
 
 
