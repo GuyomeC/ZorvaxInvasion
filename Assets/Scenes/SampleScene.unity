@@ -8589,7 +8589,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1247954780}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2034382963}
+        m_TargetAssemblyTypeName: PerkShop, Assembly-CSharp
+        m_MethodName: BuyJumpNv2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1247954780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11931,7 +11943,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1507816930}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2034382963}
+        m_TargetAssemblyTypeName: PerkShop, Assembly-CSharp
+        m_MethodName: BuyJumpNv1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1507816930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16015,6 +16039,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 1382723908}
+  texteDash: {fileID: 1091551090}
+  texteJumpNiveau1: {fileID: 475939980}
+  jumpNv1: Double Jump
+  texteJumpNiveau2: {fileID: 2115344236}
+  jumpNv2: Triple Jump
 --- !u!1 &2092890316
 GameObject:
   m_ObjectHideFlags: 0

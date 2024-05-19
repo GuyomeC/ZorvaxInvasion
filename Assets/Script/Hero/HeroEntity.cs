@@ -49,7 +49,7 @@ public class HeroEntity : MonoBehaviour
     [SerializeField] private HeroHorizontalMovementSettings _jumpHorizontalMovementsSettings;
     private HeroJumpSettings _jumpSettings;
     private float recupGravity;
-    public int jumpLeft = 2;
+    public int jumpLeft = 1;
 
 
     private CameraFollowable _cameraFollowable;

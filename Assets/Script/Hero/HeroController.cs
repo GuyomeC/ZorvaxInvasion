@@ -82,10 +82,12 @@ public class HeroController : MonoBehaviour
                 _entity.jumpLeft = 2;
             } else if (haveJumpNv2 == true)
             {
+                _entity.jumpLeft = 3;
+            } else
+            {
                 _entity.jumpLeft = 1;
             }
         }
-
 
         if (_GetInputDownJump())
         {
@@ -93,12 +95,10 @@ public class HeroController : MonoBehaviour
             {
                 _entity.JumpStart();
                 _entity.jumpLeft -= 1;
-
             }
             else
             {
                 _ResetJumpBuffer();
-
             }
         }
         if (IsJumpBufferActive())
@@ -106,6 +106,7 @@ public class HeroController : MonoBehaviour
             if (_IsCoyoteTimeActive() || _entity.jumpLeft > 0 && !_entity.IsJumpImpulsing)
             {
                 _entity.JumpStart();
+                _entity.jumpLeft -= 1;
             }
         }
 
