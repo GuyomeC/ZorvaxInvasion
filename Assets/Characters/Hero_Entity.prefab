@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 3263726946779542048}
   - component: {fileID: 1300043395179681118}
   - component: {fileID: 1138035997894448478}
+  - component: {fileID: 8170189733907365406}
   m_Layer: 3
   m_Name: CameraTriggerTarget
   m_TagString: CameraTriggerTarget
@@ -281,6 +282,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2205348, y: 2.132699}
   m_EdgeRadius: 0
+--- !u!114 &8170189733907365406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788533761755653143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af49fb5ee4b95a04e9eae19298e2918e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3824186908985302936
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +305,7 @@ GameObject:
   - component: {fileID: 4716747183698154837}
   - component: {fileID: 2268715249300958295}
   - component: {fileID: 6567808794825142297}
+  - component: {fileID: 7911631483788332255}
   m_Layer: 3
   m_Name: Hero
   m_TagString: Untagged
@@ -387,6 +401,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7911631483788332255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824186908985302936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5456481055c742b41ae2cb9a5995ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3875684642128312117
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +443,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1686648415641454305}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3924923103849198624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7810488577812142566}
+  m_Layer: 3
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7810488577812142566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3924923103849198624}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6226730549065340910}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5553778603348710522
 GameObject:
@@ -495,6 +552,7 @@ GameObject:
   - component: {fileID: 318561609972801849}
   - component: {fileID: 731353212848710581}
   - component: {fileID: 8483574771311817841}
+  - component: {fileID: 5467485742337835485}
   m_Layer: 3
   m_Name: Hero_Entity
   m_TagString: Player
@@ -522,6 +580,7 @@ Transform:
   - {fileID: 5465595010806218216}
   - {fileID: 3263726946779542048}
   - {fileID: 4071832552697710404}
+  - {fileID: 7810488577812142566}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7611943422848865214
@@ -566,18 +625,19 @@ MonoBehaviour:
   _rigidbody: {fileID: 7611943422848865214}
   animator: {fileID: 6567808794825142297}
   sprite: {fileID: 2268715249300958295}
-  state: 0
+  state: 1
   _groundHorizontalMovementsSettings:
-    acceleration: 20
-    deceleration: 15
+    acceleration: 10
+    deceleration: 7.5
     turnBackFrictions: 25
-    speedMax: 10
+    speedMax: 5
   _airHorizontalMovementsSettings:
-    acceleration: 20
-    deceleration: 7
-    turnBackFrictions: 100
-    speedMax: 12
+    acceleration: 10
+    deceleration: 3.5
+    turnBackFrictions: 50
+    speedMax: 6
   _horizontalSpeed: 0
+  _recupHorizontalSpeed: 0
   _fallSetting:
     fallGravity: 20
     fallSpeedMax: 10
@@ -592,21 +652,27 @@ MonoBehaviour:
     dashTimer: 0
     isDashing: 0
   haveDash: 0
+  _dashBasSetting:
+    speed: -20
+    duration: 0.3
+    dashTimer: 0
+    isDashing: 0
+  haveDashBas: 0
   _orientVisualRoot: {fileID: 6226730549065340910}
   _orientX: 1
   allJumpSettings:
+  - jumpSpeed: 7
+    jumpMinDuration: 0.1
+    jumpMaxDuration: 0.25
   - jumpSpeed: 5
     jumpMinDuration: 0.1
     jumpMaxDuration: 0.25
-  - jumpSpeed: 3
-    jumpMinDuration: 0.1
-    jumpMaxDuration: 0.25
-  - jumpSpeed: 3
+  - jumpSpeed: 4
     jumpMinDuration: 0.05
     jumpMaxDuration: 0.1
   _jumpFallSettings:
     fallGravity: 20
-    fallSpeedMax: 10
+    fallSpeedMax: 20
   _jumpHorizontalMovementsSettings:
     acceleration: 20
     deceleration: 1
@@ -784,6 +850,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCores: 0
   currentMoneyOnUI: {fileID: 0}
+--- !u!114 &5467485742337835485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6045085785981568184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3116fe8c8cb5fbc41bb4d61d8ffb8ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entity: {fileID: 100619221024206016}
+  spritePerso: {fileID: 3824186908985302936}
+  degats: 1
+  weapon: {fileID: 7810488577812142566}
+  projectil: {fileID: 7270561193696569632, guid: 7131690ad2e8bf84e8f359506f7e462a, type: 3}
+  speedProjectil: 25
+  reloadTime: 0.3
 --- !u!1 &6276952354611592848
 GameObject:
   m_ObjectHideFlags: 0

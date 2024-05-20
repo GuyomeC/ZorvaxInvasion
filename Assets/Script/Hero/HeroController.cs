@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroController : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class HeroController : MonoBehaviour
 
     [Header("Health")]
     [SerializeField] public int currentHealth;
-    [SerializeField] public int maxHealth = 3;    
+    [SerializeField] public int maxHealth = 3;
+    public Slider slider;
 
     [Header("Jump Buffer")]
     [SerializeField] private float _jumpBufferDuration = 0.2f;
@@ -55,11 +57,13 @@ public class HeroController : MonoBehaviour
     {
         _CancelJumpBuffer();
         currentHealth = maxHealth;
+        slider.maxValue = maxHealth;
+        slider.value = currentHealth;
     }
 
     private void Update()
     {
-
+        slider.value = currentHealth;
         _UpdateJumpBuffer();
 
         _entity.SetMoveDirX(GetInputMoveX());
@@ -114,6 +118,11 @@ public class HeroController : MonoBehaviour
             _entity._ActivateDash();
         }
 
+        if (_GetInputDashBas())
+        {
+            _entity._ActivateDashBas();
+        }
+
         if (currentHealth <= 0)
         {
             GameManager.Instance.GameOver();
@@ -123,6 +132,7 @@ public class HeroController : MonoBehaviour
         Attack();
 
         _entity._Dash();
+        _entity._DashBas();
 
         _entityWasTouchingGround = _entity.IsTouchingGround;
     }
@@ -184,6 +194,18 @@ public class HeroController : MonoBehaviour
         if (CanMove) {
             return Input.GetKeyDown(KeyCode.E);
         } else {
+            return false;
+        }
+    }
+
+    private bool _GetInputDashBas()
+    {
+        if (CanMove)
+        {
+            return Input.GetKeyDown(KeyCode.C);
+        }
+        else
+        {
             return false;
         }
     }

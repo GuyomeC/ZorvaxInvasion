@@ -33,7 +33,7 @@ public class attackDIST_V2 : MonoBehaviour {
 
     void Update() {
 
-        direction = new Vector2(_entity._orientX, _entity.transform.position.y);
+        direction = new Vector2(_entity._orientX, 0);
 
         // Bien maintenant qu'on connait dans quelle direction le joueur vise, on check si le joueur appuis sur son bouton de tir (ici clic-droit) ET qu'il n'est pas entrain de recharger (reloading = false)
         if (Input.GetButtonDown("Fire2") && !reloading) {

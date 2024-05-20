@@ -16,6 +16,7 @@ public class HeroEntity : MonoBehaviour
     [SerializeField] private HeroHorizontalMovementSettings _groundHorizontalMovementsSettings;
     [SerializeField] private HeroHorizontalMovementSettings _airHorizontalMovementsSettings;
     public float _horizontalSpeed = 0f;
+    public float _recupHorizontalSpeed;
     private float _moveDirX = 0f;
 
     [Header("Fall")]
@@ -38,6 +39,10 @@ public class HeroEntity : MonoBehaviour
     [Header("Dash")]
     [SerializeField] private HeroDashSettings _dashSetting;
     public bool haveDash = false;
+
+    [Header("Dash Bas")]
+    [SerializeField] private HeroDashSettings _dashBasSetting;
+    public bool haveDashBas = false;
 
     [Header("Orientation")]
     [SerializeField] private Transform _orientVisualRoot;
@@ -90,6 +95,7 @@ public class HeroEntity : MonoBehaviour
                 recupGravity = _jumpFallSettings.fallGravity;
                 _ResetVerticalSpeed();
                 _horizontalSpeed = _dashSetting.speed + 15f;
+                gameObject.GetComponent<TrailRenderer>().enabled = true;
                 _jumpFallSettings.fallGravity = recupGravity;
                 _dashSetting.isDashing = true;
             }
@@ -109,8 +115,41 @@ public class HeroEntity : MonoBehaviour
                 _dashSetting.dashTimer += Time.deltaTime;
             } else {
                 _dashSetting.isDashing = false;
+                gameObject.GetComponent<TrailRenderer>().enabled = false;
                 _horizontalSpeed = 0f;
                 _dashSetting.dashTimer = 0f;
+            }
+        }
+    }
+
+    public void _ActivateDashBas()
+    {
+        if (_dashBasSetting.dashTimer < _dashBasSetting.duration)
+        {
+            if (!IsTouchingGround)
+            {
+                _horizontalSpeed = 0f;
+                gameObject.GetComponent<TrailRenderer>().enabled = true;
+                _verticalSpeed = _dashBasSetting.speed;
+                _dashBasSetting.isDashing = true;
+            }
+        }
+    }
+
+    public void _DashBas()
+    {
+        if (_dashBasSetting.isDashing)
+        {
+            if (_dashBasSetting.dashTimer <= _dashBasSetting.duration)
+            {
+                _dashBasSetting.dashTimer += Time.deltaTime;
+            }
+            else
+            {
+                _dashBasSetting.isDashing = false;
+                gameObject.GetComponent<TrailRenderer>().enabled = false;
+                _verticalSpeed = 0f;
+                _dashBasSetting.dashTimer = 0f;
             }
         }
     }
