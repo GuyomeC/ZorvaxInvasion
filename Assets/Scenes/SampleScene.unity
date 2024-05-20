@@ -4469,6 +4469,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 846090261}
     m_Modifications:
+    - target: {fileID: 100619221024206016, guid: 4a51377a772588b42bca532fda37d4c5, type: 3}
+      propertyPath: state
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6045085785981568184, guid: 4a51377a772588b42bca532fda37d4c5, type: 3}
       propertyPath: m_Name
       value: Hero_Entity
@@ -15254,6 +15258,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   checkPlayer: {fileID: 1517110325}
+  playerIsNear: 0
 --- !u!1 &1886214480
 GameObject:
   m_ObjectHideFlags: 0
@@ -16556,6 +16561,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero_Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 3962299786072271053, guid: 0a10fba497f6b0745817d387a5ce32c2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962299786072271053, guid: 0a10fba497f6b0745817d387a5ce32c2, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4190899094614578173, guid: 0a10fba497f6b0745817d387a5ce32c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -16574,15 +16587,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190899094614578173, guid: 0a10fba497f6b0745817d387a5ce32c2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4190899094614578173, guid: 0a10fba497f6b0745817d387a5ce32c2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4190899094614578173, guid: 0a10fba497f6b0745817d387a5ce32c2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4190899094614578173, guid: 0a10fba497f6b0745817d387a5ce32c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

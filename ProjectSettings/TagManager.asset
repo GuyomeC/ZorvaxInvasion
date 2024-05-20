@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraTriggerTarget
   - Coin
+  - HeroBody
   layers:
   - Default
   - TransparentFX

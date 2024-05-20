@@ -371,25 +371,29 @@ public class HeroEntity : MonoBehaviour
     {
         MovementState state;
 
-        if (_horizontalSpeed > 1f && _jumpState == JumpState.NotJumping)
+        if (_jumpState != JumpState.NotJumping)
         {
-            state = MovementState.running;
-            Debug.Log("tu cours");
+            animator.SetBool("jump", true);
+            if (_verticalSpeed <= 0)
+            {
+                state = MovementState.jump_down;
+            }
+            else
+            {
+                state = MovementState.jump_up;
+            }
         }
-        else if (_jumpState == JumpState.JumpImpulsion)
+        else
         {
-            state = MovementState.jump_up;
-            Debug.Log("tu saute");
-        }
-        else if (_jumpState == JumpState.Falling)
-        {
-            Debug.Log("tu tombe");
-            state = MovementState.jump_down;
-        }
-        else 
-        {
-            state = MovementState.idle;
-            Debug.Log("tu cours pas");
+            animator.SetBool("jump", false);
+            if (_horizontalSpeed > 0)
+            {
+                state = MovementState.running;
+            }
+            else
+            {
+                state = MovementState.idle;
+            }
         }
 
         animator.SetInteger("state", (int)state);
