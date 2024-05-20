@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1258d49378460e4c8524581d07330e0
+guid: e35623d0a109aa748b10d247fecc5635
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Caspien_Idle_NoWeapon_0
+      name: Caspien_run_noweapon_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1085
-        width: 390
-        height: 963
+        y: 3076
+        width: 800
+        height: 1020
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92ab88f2d2959694ba16715d2061cd04
-      internalID: -176932139
+      spriteID: cd9b0adff26393145a4b8079e45a08fb
+      internalID: -1227709868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caspien_Idle_NoWeapon_1
+      name: Caspien_run_noweapon_1
       rect:
         serializedVersion: 2
-        x: 390
-        y: 1085
-        width: 390
-        height: 963
+        x: 800
+        y: 3076
+        width: 800
+        height: 1020
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f9b10fd96fadaf42b16ed5194b20d96
-      internalID: 1717065549
+      spriteID: 1d923d65e0276d9469d85c3669631aa8
+      internalID: 1310891899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caspien_Idle_NoWeapon_2
+      name: Caspien_run_noweapon_2
       rect:
         serializedVersion: 2
-        x: 780
-        y: 1085
-        width: 390
-        height: 963
+        x: 1600
+        y: 3076
+        width: 800
+        height: 1020
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f0d47fee800d444ab20c54c08fcbe68
-      internalID: 1219576245
+      spriteID: dc4e4caf37fffe943874f86160c2ee0b
+      internalID: -690943845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caspien_Idle_NoWeapon_3
+      name: Caspien_run_noweapon_3
       rect:
         serializedVersion: 2
-        x: 1170
-        y: 1085
-        width: 390
-        height: 963
+        x: 2400
+        y: 3076
+        width: 800
+        height: 1020
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 034051b82fb600745ad61aab212acb33
-      internalID: -463335775
+      spriteID: b4806fa1adee5304f94a7483f9abe43f
+      internalID: -1743284311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caspien_Idle_NoWeapon_4
+      name: Caspien_run_noweapon_4
       rect:
         serializedVersion: 2
-        x: 1560
-        y: 1085
-        width: 390
-        height: 963
+        x: 3200
+        y: 3076
+        width: 800
+        height: 1020
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1604b3e0c1c6ad24f8512144792338f2
-      internalID: 21203613
+      spriteID: 44c68c04334e2b04b880cb94b5083ff5
+      internalID: 39073291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caspien_Idle_NoWeapon_5
+      name: Caspien_run_noweapon_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 122
-        width: 390
-        height: 963
+        y: 2056
+        width: 800
+        height: 1020
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69907a2331228904e9cb929745580162
-      internalID: 1218877215
+      spriteID: efdee3e7ab20ec9419e29a061aa600a1
+      internalID: 645489720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caspien_Idle_NoWeapon_6
+      name: Caspien_run_noweapon_6
       rect:
         serializedVersion: 2
-        x: 390
-        y: 122
-        width: 390
-        height: 963
+        x: 800
+        y: 2056
+        width: 800
+        height: 1020
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58bc3b90da1c0804ba3f646693d7628e
-      internalID: -133098030
+      spriteID: e76dc970cb84b2445853f59c51788883
+      internalID: 1140970302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caspien_Idle_NoWeapon_7
+      name: Caspien_run_noweapon_7
       rect:
         serializedVersion: 2
-        x: 780
-        y: 122
-        width: 390
-        height: 963
+        x: 1600
+        y: 2056
+        width: 800
+        height: 1020
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04b7c88ff4c71e74f9d9a61df1b03638
-      internalID: -1646617037
+      spriteID: 6938229207fcdf747ab56eba15d75130
+      internalID: 2035550508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Caspien_Idle_NoWeapon_8
+      name: Caspien_run_noweapon_8
       rect:
         serializedVersion: 2
-        x: 1170
-        y: 122
-        width: 390
-        height: 963
+        x: 2400
+        y: 2056
+        width: 800
+        height: 1020
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,8 +279,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2548f6252f13a7241a7f00917057b8d7
-      internalID: -1932630014
+      spriteID: 0373396c2af9a564ebc2d9b94cc6f1f2
+      internalID: -14884160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspien_run_noweapon_9
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2056
+        width: 800
+        height: 1020
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28aff6a05d733446bff15e51c48f884
+      internalID: 1749598784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspien_run_noweapon_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1036
+        width: 800
+        height: 1020
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 399109a0744ded64d832f8e1288770b8
+      internalID: -1764897701
       vertices: []
       indices: 
       edges: []
@@ -296,15 +338,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Caspien_Idle_NoWeapon_0: -176932139
-      Caspien_Idle_NoWeapon_1: 1717065549
-      Caspien_Idle_NoWeapon_2: 1219576245
-      Caspien_Idle_NoWeapon_3: -463335775
-      Caspien_Idle_NoWeapon_4: 21203613
-      Caspien_Idle_NoWeapon_5: 1218877215
-      Caspien_Idle_NoWeapon_6: -133098030
-      Caspien_Idle_NoWeapon_7: -1646617037
-      Caspien_Idle_NoWeapon_8: -1932630014
+      Caspien_run_noweapon_0: -1227709868
+      Caspien_run_noweapon_1: 1310891899
+      Caspien_run_noweapon_10: -1764897701
+      Caspien_run_noweapon_2: -690943845
+      Caspien_run_noweapon_3: -1743284311
+      Caspien_run_noweapon_4: 39073291
+      Caspien_run_noweapon_5: 645489720
+      Caspien_run_noweapon_6: 1140970302
+      Caspien_run_noweapon_7: 2035550508
+      Caspien_run_noweapon_8: -14884160
+      Caspien_run_noweapon_9: 1749598784
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

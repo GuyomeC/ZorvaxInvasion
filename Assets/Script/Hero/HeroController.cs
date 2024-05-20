@@ -157,6 +157,34 @@ public class HeroController : MonoBehaviour
             enemy_.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
+    public void TakeDamage(int damage)
+    {
+        //currentHealth -= damage;
+        //Animator anim;
+        //anim = GetComponent<Animator>();
+        //anim.SetTrigger("Hit");
+        //UpdateHealthBar(currentHealth);
+        //StartCoroutine(Delay());
+        //IEnumerator Delay()
+        //{
+        //    yield return new WaitForSeconds(1f);
+        //    if (Enemy.instance.playerIsNear == true)
+        //    {
+        //        anim.SetTrigger("attack");
+        //    } else
+        //    {
+        //        anim.SetTrigger("run");
+        //    }
+        //}
+        //healthBar.SetActive(true);
+        //if (currentHealth <= 0)
+        //{
+        //    Destroy(gameObject);
+        //}
+
+        Debug.Log(currentHealth);
+        Debug.Log(currentHealth -= damage);
+    }
 
     private bool _GetInputDownJump()
     {

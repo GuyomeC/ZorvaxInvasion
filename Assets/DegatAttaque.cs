@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DegatAttaque : MonoBehaviour
 {
-    public void consoleDeOuf()
+    public void LeHeroAttaqueEtMetDesDegats()
     {
         HeroController.instance.OnAttack();
     }
