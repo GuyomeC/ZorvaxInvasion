@@ -5,22 +5,26 @@ using UnityEngine;
 public class Enemy : EnemyStats
 {
     [SerializeField] private ennemiPatrol partol;
-
-    [Header("Stat")]
-    private float lastPlayerDetectTime;
-    public float playerDetectRate = 0.2f;
  
     [Header("Attack")]
-    [SerializeField] float attackRange;
+    [SerializeField] public float attackRange;
     [SerializeField] float attackRate;
     private float lastAttackTime;
     public Transform attackPoint;
     public LayerMask playerLayerMask;
+    [SerializeField] public Transform checkPlayer;
 
     [Header("Component")]
     Rigidbody2D rb;
     private HeroEntity targetPlayer;
     Animator animator;
+
+    public static Enemy instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
 
     private void Start()
@@ -32,7 +36,7 @@ public class Enemy : EnemyStats
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "CameraTriggerTarget")
         {
             animator.SetTrigger("attack");
             partol.speed = 0f;
@@ -42,11 +46,21 @@ public class Enemy : EnemyStats
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "CameraTriggerTarget")
         {
             animator.SetTrigger("run");
             partol.speed = 2f;
             partol.isAttacking = false;
         }
+    }
+
+    private void VerifPlayer()
+    {
+        Collider2D[] player = Physics2D.OverlapCircleAll(checkPlayer.position, 0.5f, playerLayerMask);
+        foreach (var enemy_ in player)
+        {
+            //enemy_.GetComponent<HeroController>().TakeDamage(damage);
+        }
+
     }
 }

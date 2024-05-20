@@ -16,7 +16,6 @@ public class HeroController : MonoBehaviour
     [SerializeField] private float _jumpBufferDuration = 0.2f;
     private float _jumpBufferTimer = 0f;
     public bool haveJumpNv1 = false;
-    public bool haveJumpNv2 = false;
 
     [Header("Coyote Time")]
     [SerializeField] private float _coyoteTimeDuration = 0.2f;
@@ -84,7 +83,7 @@ public class HeroController : MonoBehaviour
         {
             if (_IsCoyoteTimeActive() || _entity.jumpUse < _entity.maxJumpUse && !_entity.IsJumpImpulsing)
             {
-                _entity.jumpUse ++;
+                _entity.jumpUse += 1;
                 _entity.JumpStart();
             }
             else
@@ -136,7 +135,6 @@ public class HeroController : MonoBehaviour
                 _entity._rigidbody.velocity = Vector3.zero;
                 _entity.animator.SetTrigger("attack");
                 _entity._horizontalSpeed = 0;
-                OnAttack();
                 StartCoroutine(Delay());
                 IEnumerator Delay()
                 {

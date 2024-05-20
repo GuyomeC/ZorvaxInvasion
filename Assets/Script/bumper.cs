@@ -16,7 +16,7 @@ public class bumper : MonoBehaviour
     void OnTriggerEnter2D(Collider2D truc) {
         if (truc.tag == "CameraTriggerTarget") {
             Debug.Log("tes bumper");
-            _entity._verticalSpeed += puissance;
+            _entity._verticalSpeed = _entity._verticalSpeed + puissance;
             StartCoroutine(bumping(truc.gameObject));
         }        
     }

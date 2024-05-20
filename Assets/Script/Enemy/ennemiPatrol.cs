@@ -54,6 +54,14 @@ public class ennemiPatrol : MonoBehaviour
 
         // Enfin on fait avancer l'ennemi dans la bonne direction
         rb.velocity = new Vector2(direction * speed, rb.velocity.y);
+        if (direction == 1f)
+        {
+            Enemy.instance.checkPlayer.position = new Vector2(gameObject.transform.position.x + Enemy.instance.attackRange, rb.velocity.y);
+        } else
+        {
+            Enemy.instance.checkPlayer.position = new Vector2(gameObject.transform.position.x - Enemy.instance.attackRange, rb.velocity.y);
+        }
+
     }
 
     //Cette fonction sert a visualiser le chemin de l'ennemi dans l'éditeur

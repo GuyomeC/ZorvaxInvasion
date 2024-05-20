@@ -13,6 +13,8 @@ public class porte : MonoBehaviour {
     private Vector2 directionAngle;                                     // Variable pour tranformer l'angle RotationPath (en degré) vers une direction (Vector2)
     private Vector3 destinationPosition;                                // Sert a transformer la distance avec la destination en coordonnées X/Y/Z
     private bool go;
+    [SerializeField] public Sprite porteOpened;
+    [SerializeField] private SpriteRenderer porteClosed;
 
     // Ici on va enregistrer la position de la destination en utilisant l'angle de rotation et la distance qu'on a choisie
     void Start() {
@@ -29,6 +31,7 @@ public class porte : MonoBehaviour {
 
     // fontion pour passer "GO" en vrai, qui doit être appeler depuis un autre script (Comme sur un levier qui doit ouvrire cette porte, CF script levierPorte)
     public void ouverture () {
+        porteClosed.sprite = porteOpened;
         go = true;
     }
 

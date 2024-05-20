@@ -24,6 +24,7 @@ public class EnemyStats : MonoBehaviour
         anim = GetComponent<Animator>();
         anim.SetTrigger("Hit");
         UpdateHealthBar(currentHealth);
+
         healthBar.SetActive(true);
         anim.SetTrigger("attack");
         if (currentHealth <= 0)
