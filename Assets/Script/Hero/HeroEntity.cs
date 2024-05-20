@@ -132,6 +132,8 @@ public class HeroEntity : MonoBehaviour
 
     public bool IsJumpMinDurationReached => _jumpTimer >= allJumpSettings[0].jumpMinDuration;
 
+    
+
     private void FixedUpdate()
     {
 

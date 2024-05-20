@@ -8,9 +8,11 @@ public class EnemyStats : MonoBehaviour
 {
     public int damage;
     public int currentHealth;
-    public int maxHealth;
+    public int maxHealth; 
 
     public GameObject healthBar;
+    private GameObject coresNouveau;
+    
     public Image life;
 
     public void UpdateHealthBar(int value)
@@ -18,7 +20,7 @@ public class EnemyStats : MonoBehaviour
         life.fillAmount = (float)value / maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector3 spawnCores, Quaternion spawnButinRot)
     {
         currentHealth -= damage;
         Animator anim;
@@ -40,6 +42,7 @@ public class EnemyStats : MonoBehaviour
         healthBar.SetActive(true);
         if (currentHealth <= 0)
         {
+            coresNouveau = Instantiate(Enemy.instance.cores, spawnCores, spawnButinRot);
             Destroy(gameObject);
         }
     }

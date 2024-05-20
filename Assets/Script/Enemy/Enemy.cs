@@ -5,11 +5,12 @@ using UnityEngine;
 public class Enemy : EnemyStats
 {
     [SerializeField] private ennemiPatrol partol;
- 
+
+    public GameObject cores;
+
     [Header("Attack")]
     [SerializeField] public float attackRange;
     [SerializeField] float attackRate;
-    private float lastAttackTime;
     public Transform attackPoint;
     public LayerMask playerLayerMask;
     [SerializeField] public Transform checkPlayer;
@@ -59,7 +60,7 @@ public class Enemy : EnemyStats
         Collider2D[] player = Physics2D.OverlapCircleAll(checkPlayer.position, 0.5f, playerLayerMask);
         foreach (var enemy_ in player)
         {
-            enemy_.GetComponent<HeroController>().TakeDamage(damage);
+            enemy_.GetComponent<HeroTakeDamage>().TakeDamage(damage);
         }
 
     }

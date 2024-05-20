@@ -59,6 +59,7 @@ public class HeroController : MonoBehaviour
 
     private void Update()
     {
+
         _UpdateJumpBuffer();
 
         _entity.SetMoveDirX(GetInputMoveX());
@@ -152,39 +153,14 @@ public class HeroController : MonoBehaviour
     public void OnAttack()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(checkEnemy.position, 0.5f, whatIsEnemy);
+        Vector3 spawnButin = new Vector3(gameObject.transform.position.x + 10, gameObject.transform.position.y, gameObject.transform.position.z);
+        Quaternion spawnButinRot = Quaternion.identity;
         foreach (var enemy_ in enemy)
         {
-            enemy_.GetComponent<Enemy>().TakeDamage(damage);
+            enemy_.GetComponent<Enemy>().TakeDamage(damage, spawnButin, spawnButinRot);
         }
     }
-    public void TakeDamage(int damage)
-    {
-        //currentHealth -= damage;
-        //Animator anim;
-        //anim = GetComponent<Animator>();
-        //anim.SetTrigger("Hit");
-        //UpdateHealthBar(currentHealth);
-        //StartCoroutine(Delay());
-        //IEnumerator Delay()
-        //{
-        //    yield return new WaitForSeconds(1f);
-        //    if (Enemy.instance.playerIsNear == true)
-        //    {
-        //        anim.SetTrigger("attack");
-        //    } else
-        //    {
-        //        anim.SetTrigger("run");
-        //    }
-        //}
-        //healthBar.SetActive(true);
-        //if (currentHealth <= 0)
-        //{
-        //    Destroy(gameObject);
-        //}
 
-        Debug.Log(currentHealth);
-        Debug.Log(currentHealth -= damage);
-    }
 
     private bool _GetInputDownJump()
     {

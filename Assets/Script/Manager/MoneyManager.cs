@@ -29,7 +29,7 @@ public class MoneyManager : MonoBehaviour
     {
         if (truc.tag == "Coin")
         {
-            currentCores += 5;
+            currentCores ++;
             currentMoneyOnUI.text = currentCores.ToString();
             Destroy(truc.gameObject);
         }
