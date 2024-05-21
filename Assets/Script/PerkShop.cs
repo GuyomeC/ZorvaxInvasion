@@ -10,35 +10,166 @@ public class PerkShop : MonoBehaviour
 
     public TextMeshProUGUI texteDash;
     public string takeDash = "Dash";
-    public TextMeshProUGUI texteJumpNiveau1;
-    public string jumpNv1 = "Double Jump";
+    private bool takeDash1 = false;
+    private bool takeDash2 = false;
+    private bool takeDash3 = false;
+    public TextMeshProUGUI texteTripleJump;
+    public string tripleJump = "Triple Jump";
+    private bool tripleJump1 = false;
+    private bool tripleJump2 = false;
+    private bool tripleJump3 = false;
+    public TextMeshProUGUI textehaveDashBas;
+    public string DashBasTexte = "Dash Bas";
+    private bool DashBas1 = false;
+    private bool DashBas2 = false;
+    private bool DashBas3 = false;
 
 
     private void Start()
     {
-        texteJumpNiveau1.text = jumpNv1;
+        texteTripleJump.text = tripleJump;
         texteDash.text = takeDash;
+    }
+
+    public void BuyDashNv1()
+    {
+        if (takeDash1 == false && MoneyManager.instance.currentCores >= 1)
+        {
+            MoneyManager.instance.currentCores -= 1;
+            takeDash1 = true;
+        } else
+        {
+            return;
+        }
+    }
+    public void BuyDashNv2()
+    {
+        if (takeDash2 == false && MoneyManager.instance.currentCores >= 1)
+        {
+            MoneyManager.instance.currentCores -= 1;
+            takeDash2 = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void BuyDashNv3()
+    {
+        if (takeDash3 == false && MoneyManager.instance.currentCores >= 1)
+        {
+            MoneyManager.instance.currentCores -= 1;
+            takeDash3 = true;
+        }
+        else
+        {
+            return;
+        }
     }
 
     public void BuyDash()
     {
-        if (_entity.haveDash == false && MoneyManager.instance.currentCores >= 3)
+        if (_entity.haveDash == false && takeDash1 && takeDash2 && takeDash3)
         {
             _entity.haveDash = true;
-            MoneyManager.instance.currentCores -= 3;
         } else
         {
             return;
         }
     }
 
-    public void BuyJumpNv1()
+    public void tripleJumpNv1()
     {
-        if (MoneyManager.instance.currentCores >= 3 && !HeroController.instance.haveJumpNv1)
+        if (tripleJump1 == false && MoneyManager.instance.currentCores >= 1)
         {
-            HeroController.instance.haveJumpNv1 = true;
+            MoneyManager.instance.currentCores -= 1;
+            tripleJump1 = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void tripleJumpNv2()
+    {
+        if (tripleJump2 == false && MoneyManager.instance.currentCores >= 1)
+        {
+            MoneyManager.instance.currentCores -= 1;
+            tripleJump2 = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void tripleJumpNv3()
+    {
+        if (tripleJump3 == false && MoneyManager.instance.currentCores >= 1)
+        {
+            MoneyManager.instance.currentCores -= 1;
+            tripleJump3 = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    public void BuyJump()
+    {
+        if (!HeroController.instance.haveTripleJump && tripleJump1 && tripleJump2 && tripleJump3)
+        {
+            HeroController.instance.haveTripleJump = true;
             _entity.maxJumpUse++;
-            MoneyManager.instance.currentCores -= 3;
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    public void BuyDashBasNv1()
+    {
+        if (DashBas1 == false && MoneyManager.instance.currentCores >= 1)
+        {
+            MoneyManager.instance.currentCores -= 1;
+            DashBas1 = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void BuyDashBasNv2()
+    {
+        if (DashBas2 == false && MoneyManager.instance.currentCores >= 1)
+        {
+            MoneyManager.instance.currentCores -= 1;
+            DashBas2 = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void BuyDashBasNv3()
+    {
+        if (DashBas3 == false && MoneyManager.instance.currentCores >= 1)
+        {
+            MoneyManager.instance.currentCores -= 1;
+            DashBas3 = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    public void BuyDashBas()
+    {
+        if (_entity.haveDashBas == false && DashBas1 && DashBas2 && DashBas3)
+        {
+            _entity.haveDashBas = true;
         }
         else
         {

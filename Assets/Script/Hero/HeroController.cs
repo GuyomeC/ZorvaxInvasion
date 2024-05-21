@@ -17,7 +17,7 @@ public class HeroController : MonoBehaviour
     [Header("Jump Buffer")]
     [SerializeField] private float _jumpBufferDuration = 0.2f;
     private float _jumpBufferTimer = 0f;
-    public bool haveJumpNv1 = false;
+    public bool haveTripleJump = false;
 
     [Header("Coyote Time")]
     [SerializeField] private float _coyoteTimeDuration = 0.2f;
