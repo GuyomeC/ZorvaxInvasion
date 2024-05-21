@@ -10,14 +10,12 @@ public class EnemyStats : MonoBehaviour
     public int currentHealth;
     public int maxHealth; 
 
-    public GameObject healthBar;
+    public Slider healthBar;
     private GameObject coresNouveau;
     
-    public Image life;
-
-    public void UpdateHealthBar(int value)
+    public void UpdateHealthBar()
     {
-        life.fillAmount = (float)value / maxHealth;
+        healthBar.value = currentHealth;
     }
 
     public void TakeDamage(int damage, Vector3 spawnCores, Quaternion spawnButinRot)
@@ -26,7 +24,7 @@ public class EnemyStats : MonoBehaviour
         Animator anim;
         anim = GetComponent<Animator>();
         anim.SetTrigger("Hit");
-        UpdateHealthBar(currentHealth);
+        UpdateHealthBar();
         StartCoroutine(Delay());
         IEnumerator Delay()
         {
@@ -39,9 +37,9 @@ public class EnemyStats : MonoBehaviour
                 anim.SetTrigger("run");
             }
         }
-        healthBar.SetActive(true);
         if (currentHealth <= 0)
         {
+            Enemy.instance.IsAlive = false;
             coresNouveau = Instantiate(Enemy.instance.cores, spawnCores, spawnButinRot);
             Destroy(gameObject);
         }

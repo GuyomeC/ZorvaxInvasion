@@ -15,6 +15,7 @@ public class Enemy : EnemyStats
     public LayerMask playerLayerMask;
     [SerializeField] public Transform checkPlayer;
     public bool playerIsNear = false;
+    public bool IsAlive = true;
 
     [Header("Component")]
     Animator animator;
@@ -31,6 +32,8 @@ public class Enemy : EnemyStats
     {
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currentHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

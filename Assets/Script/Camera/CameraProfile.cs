@@ -8,6 +8,7 @@ public class CameraProfile : MonoBehaviour
     [Header("Follow")]
     [SerializeField] private CameraFollowable _targetToFollow;
     public float _followOffsetX = 8f;
+    public float _followOffsetY = 5f;
     public float _followOffsetDamping = 1.5f;
 
     [Header("Auto Scroll")]

@@ -28,38 +28,43 @@ public class ennemiPatrol : MonoBehaviour
 
 
     void Update() {
-        // Si l'ennemi se coince contre quelque chose (sa vitesse plus petite que 0.1 m/s) alors il se retourne
-        if (Mathf.Abs(rb.velocity.x) < 0.1f && !isAttacking) {
-            direction = -direction;
-        }
+
+        if(Enemy.instance.IsAlive)
+        {
+            Enemy.instance.UpdateHealthBar();
+            // Si l'ennemi se coince contre quelque chose (sa vitesse plus petite que 0.1 m/s) alors il se retourne
+            if (Mathf.Abs(rb.velocity.x) < 0.1f && !isAttacking) {
+                direction = -direction;
+            }
         
-        //Si il dépasse sa limite Droite, il se retourne
-        if (transform.position.x > limiteDroitePosition.x && !isAttacking) {
-            direction = -1f;
-        }
+            //Si il dépasse sa limite Droite, il se retourne
+            if (transform.position.x > limiteDroitePosition.x && !isAttacking) {
+                direction = -1f;
+            }
 
-        //Si il dépasse sa limite gauche, il se retourne
-        if (transform.position.x < limiteGauchePosition.x && !isAttacking) {
-            direction = 1f;
-        }
+            //Si il dépasse sa limite gauche, il se retourne
+            if (transform.position.x < limiteGauchePosition.x && !isAttacking) {
+                direction = 1f;
+            }
 
-        // Enfin on met le sprite dans le bon sens
-        if (direction == 1f) {
-            skin.flipX = false;
-        }
+            // Enfin on met le sprite dans le bon sens
+            if (direction == 1f) {
+                skin.flipX = false;
+            }
 
-        if (direction == -1f) {
-            skin.flipX = true;
-        }
+            if (direction == -1f) {
+                skin.flipX = true;
+            }
 
-        // Enfin on fait avancer l'ennemi dans la bonne direction
-        rb.velocity = new Vector2(direction * speed, rb.velocity.y);
-        if (direction == 1f)
-        {
-            Enemy.instance.checkPlayer.position = new Vector2(gameObject.transform.position.x + Enemy.instance.attackRange, rb.velocity.y);
-        } else
-        {
-            Enemy.instance.checkPlayer.position = new Vector2(gameObject.transform.position.x - Enemy.instance.attackRange, rb.velocity.y);
+            // Enfin on fait avancer l'ennemi dans la bonne direction
+            rb.velocity = new Vector2(direction * speed, rb.velocity.y);
+            if (direction == 1f)
+            {
+                Enemy.instance.checkPlayer.position = new Vector2(gameObject.transform.position.x + Enemy.instance.attackRange, rb.velocity.y);
+            } else
+            {
+                Enemy.instance.checkPlayer.position = new Vector2(gameObject.transform.position.x - Enemy.instance.attackRange, rb.velocity.y);
+            }
         }
 
     }

@@ -222,6 +222,11 @@ public class HeroEntity : MonoBehaviour
         _ApplyVerticalSpeed();
     }
 
+    public void TakeDamage(int amount)
+    {
+        HeroController.instance.currentHealth -= amount; // Réduit la santé du joueur
+    }
+
     private void _ApplyHorizontalSpeed()
     {
         Vector2 velocity = _rigidbody.velocity;
