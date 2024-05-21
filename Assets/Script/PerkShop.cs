@@ -8,6 +8,8 @@ public class PerkShop : MonoBehaviour
     [Header("Entity")]
     [SerializeField] private HeroEntity _entity;
 
+    [SerializeField] private GameObject NoEnoughMoney;
+
     public TextMeshProUGUI texteDash;
     public string takeDash = "Dash";
     private bool takeDash1 = false;
@@ -25,10 +27,24 @@ public class PerkShop : MonoBehaviour
     private bool DashBas3 = false;
 
 
-    private void Start()
+    private void Update()
     {
-        texteTripleJump.text = tripleJump;
-        texteDash.text = takeDash;
+
+        if (takeDash1 && takeDash2 && takeDash3)
+        {
+            texteDash.text = "3/3";
+        }
+        else if ((takeDash1 && takeDash2) || (takeDash2 && takeDash3) || (takeDash1 && takeDash3))
+        {
+            texteDash.text = "2/3";
+        } else if (takeDash1 || takeDash2 || takeDash3)
+        {
+            texteDash.text = "1/3";
+        } else
+        {
+            texteDash.text = "0/3";
+        }
+
     }
 
     public void BuyDashNv1()
@@ -39,7 +55,7 @@ public class PerkShop : MonoBehaviour
             takeDash1 = true;
         } else
         {
-            return;
+            NoEnoughMoney.GetComponent<Animator>().SetTrigger("NoEnoughMoney");
         }
     }
     public void BuyDashNv2()
@@ -51,7 +67,7 @@ public class PerkShop : MonoBehaviour
         }
         else
         {
-            return;
+            NoEnoughMoney.GetComponent<Animator>().SetTrigger("NoEnoughMoney");
         }
     }
     public void BuyDashNv3()
@@ -63,7 +79,7 @@ public class PerkShop : MonoBehaviour
         }
         else
         {
-            return;
+            NoEnoughMoney.GetComponent<Animator>().SetTrigger("NoEnoughMoney");
         }
     }
 
