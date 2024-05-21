@@ -154,7 +154,6 @@ public class HeroController : MonoBehaviour
                     _entity.animator.SetTrigger("endAttack");
                     CanMove = true;
                 }
-
                 attackTime = Time.time + timeBetweenAttack;
             }
         }

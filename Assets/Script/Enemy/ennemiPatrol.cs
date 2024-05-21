@@ -49,11 +49,11 @@ public class ennemiPatrol : MonoBehaviour
 
             // Enfin on met le sprite dans le bon sens
             if (direction == 1f) {
-                skin.flipX = false;
+                skin.flipX = true;
             }
 
             if (direction == -1f) {
-                skin.flipX = true;
+                skin.flipX = false;
             }
 
             // Enfin on fait avancer l'ennemi dans la bonne direction

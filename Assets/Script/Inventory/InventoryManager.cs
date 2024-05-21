@@ -37,12 +37,6 @@ public class InventoryManager: MonoBehaviour
         instance = this;
     }
 
-    private void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I) && !inventoryPanel.activeInHierarchy)

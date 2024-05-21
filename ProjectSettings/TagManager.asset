@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - HeroBody
   - Ennemi
+  - Weak Point
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - Decoration
   - Obstacles
   - Enemy
-  - 
-  - 
+  - Background
+  - espace
   - 
   - 
   - 
@@ -42,8 +43,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Espace
+    uniqueID: 49151411
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2744134963
     locked: 0
   - name: Ground
     uniqueID: 28855359
@@ -61,5 +68,5 @@ TagManager:
     uniqueID: 2484063975
     locked: 0
   - name: Enemy
-    uniqueID: 1607256845
+    uniqueID: 3988490549
     locked: 0

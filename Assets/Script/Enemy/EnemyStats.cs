@@ -23,19 +23,13 @@ public class EnemyStats : MonoBehaviour
         currentHealth -= damage;
         Animator anim;
         anim = GetComponent<Animator>();
-        anim.SetTrigger("Hit");
         UpdateHealthBar();
         StartCoroutine(Delay());
+        
         IEnumerator Delay()
         {
-            yield return new WaitForSeconds(1f);
-            if (Enemy.instance.playerIsNear == true)
-            {
-                anim.SetTrigger("attack");
-            } else
-            {
-                anim.SetTrigger("run");
-            }
+            yield return new WaitForSeconds(0.8f);
+
         }
         if (currentHealth <= 0)
         {
