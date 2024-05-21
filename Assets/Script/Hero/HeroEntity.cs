@@ -92,6 +92,7 @@ public class HeroEntity : MonoBehaviour
         if (_dashSetting.dashTimer < _dashSetting.duration && haveDash) {
             if (!IsTouchingGround)
             {
+                animator.SetBool("isDashing", true);
                 recupGravity = _jumpFallSettings.fallGravity;
                 _ResetVerticalSpeed();
                 _horizontalSpeed = _dashSetting.speed + 15f;
@@ -102,6 +103,7 @@ public class HeroEntity : MonoBehaviour
             else
             {
                 _horizontalSpeed = _dashSetting.speed;
+                gameObject.GetComponent<TrailRenderer>().enabled = true;
                 _dashSetting.isDashing = true;
             }
         }
@@ -118,16 +120,18 @@ public class HeroEntity : MonoBehaviour
                 gameObject.GetComponent<TrailRenderer>().enabled = false;
                 _horizontalSpeed = 0f;
                 _dashSetting.dashTimer = 0f;
+                animator.SetBool("isDashing", false);
             }
         }
     }
 
     public void _ActivateDashBas()
     {
-        if (_dashBasSetting.dashTimer < _dashBasSetting.duration)
+        if (_dashBasSetting.dashTimer < _dashBasSetting.duration && haveDashBas)
         {
             if (!IsTouchingGround)
             {
+                animator.SetBool("isDashing", true);
                 _horizontalSpeed = 0f;
                 gameObject.GetComponent<TrailRenderer>().enabled = true;
                 _verticalSpeed = _dashBasSetting.speed;
@@ -150,6 +154,7 @@ public class HeroEntity : MonoBehaviour
                 gameObject.GetComponent<TrailRenderer>().enabled = false;
                 _verticalSpeed = 0f;
                 _dashBasSetting.dashTimer = 0f;
+                animator.SetBool("isDashing", false);
             }
         }
     }

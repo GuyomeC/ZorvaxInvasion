@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PerkShop : MonoBehaviour
 {
@@ -12,17 +13,25 @@ public class PerkShop : MonoBehaviour
 
     public TextMeshProUGUI texteDash;
     private bool takeDash1 = false;
+    [SerializeField] private GameObject wayTakeDash1;
     private bool takeDash2 = false;
+    [SerializeField] private GameObject wayTakeDash2;
     private bool takeDash3 = false;
+    [SerializeField] private GameObject wayTakeDash3;
     public TextMeshProUGUI texteTripleJump;
     private bool tripleJump1 = false;
+    [SerializeField] private GameObject wayTripleJump1;
     private bool tripleJump2 = false;
+    [SerializeField] private GameObject wayTripleJump2;
     private bool tripleJump3 = false;
+    [SerializeField] private GameObject wayTripleJump3;
     public TextMeshProUGUI textehaveDashBas;
     private bool DashBas1 = false;
+    [SerializeField] private GameObject wayDashBas1;
     private bool DashBas2 = false;
+    [SerializeField] private GameObject wayDashBas2;
     private bool DashBas3 = false;
-
+    [SerializeField] private GameObject wayDashBas3;
 
     private void Update()
     {
@@ -84,7 +93,12 @@ public class PerkShop : MonoBehaviour
         {
             MoneyManager.instance.currentCores -= 1;
             takeDash1 = true;
-        } else
+            ChangeImageColor changeImageColor = new ChangeImageColor();
+            Image myImage = wayTakeDash1.GetComponent<Image>();
+            changeImageColor.SetColor(myImage, Color.green);
+
+        }
+        else
         {
             NoEnoughMoney.GetComponent<Animator>().SetTrigger("NoEnoughMoney");
         }
@@ -95,6 +109,9 @@ public class PerkShop : MonoBehaviour
         {
             MoneyManager.instance.currentCores -= 1;
             takeDash2 = true;
+            ChangeImageColor changeImageColor = new ChangeImageColor();
+            Image myImage = wayTakeDash2.GetComponent<Image>();
+            changeImageColor.SetColor(myImage, Color.green);
         }
         else
         {
@@ -107,6 +124,9 @@ public class PerkShop : MonoBehaviour
         {
             MoneyManager.instance.currentCores -= 1;
             takeDash3 = true;
+            ChangeImageColor changeImageColor = new ChangeImageColor();
+            Image myImage = wayTakeDash3.GetComponent<Image>();
+            changeImageColor.SetColor(myImage, Color.green);
         }
         else
         {
@@ -124,6 +144,7 @@ public class PerkShop : MonoBehaviour
             return;
         }
     }
+    
 
     public void tripleJumpNv1()
     {
@@ -131,6 +152,9 @@ public class PerkShop : MonoBehaviour
         {
             MoneyManager.instance.currentCores -= 1;
             tripleJump1 = true;
+            ChangeImageColor changeImageColor = new ChangeImageColor();
+            Image myImage = wayTripleJump1.GetComponent<Image>();
+            changeImageColor.SetColor(myImage, Color.green);
         }
         else
         {
@@ -144,6 +168,9 @@ public class PerkShop : MonoBehaviour
         {
             MoneyManager.instance.currentCores -= 1;
             tripleJump2 = true;
+            ChangeImageColor changeImageColor = new ChangeImageColor();
+            Image myImage = wayTripleJump2.GetComponent<Image>();
+            changeImageColor.SetColor(myImage, Color.green);
         }
         else
         {
@@ -157,6 +184,9 @@ public class PerkShop : MonoBehaviour
         {
             MoneyManager.instance.currentCores -= 1;
             tripleJump3 = true;
+            ChangeImageColor changeImageColor = new ChangeImageColor();
+            Image myImage = wayTripleJump3.GetComponent<Image>();
+            changeImageColor.SetColor(myImage, Color.green);
         }
         else
         {
@@ -184,6 +214,9 @@ public class PerkShop : MonoBehaviour
         {
             MoneyManager.instance.currentCores -= 1;
             DashBas1 = true;
+            ChangeImageColor changeImageColor = new ChangeImageColor();
+            Image myImage = wayDashBas1.GetComponent<Image>();
+            changeImageColor.SetColor(myImage, Color.green);
         }
         else
         {
@@ -197,6 +230,9 @@ public class PerkShop : MonoBehaviour
         {
             MoneyManager.instance.currentCores -= 1;
             DashBas2 = true;
+            ChangeImageColor changeImageColor = new ChangeImageColor();
+            Image myImage = wayDashBas2.GetComponent<Image>();
+            changeImageColor.SetColor(myImage, Color.green);
         }
         else
         {
@@ -210,6 +246,9 @@ public class PerkShop : MonoBehaviour
         {
             MoneyManager.instance.currentCores -= 1;
             DashBas3 = true;
+            ChangeImageColor changeImageColor = new ChangeImageColor();
+            Image myImage = wayDashBas3.GetComponent<Image>();
+            changeImageColor.SetColor(myImage, Color.green);
         }
         else
         {

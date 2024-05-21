@@ -163,7 +163,7 @@ public class HeroController : MonoBehaviour
     public void OnAttack()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(checkEnemy.position, 0.5f, whatIsEnemy);
-        Vector3 spawnButin = new Vector3(gameObject.transform.position.x + 10, gameObject.transform.position.y, gameObject.transform.position.z);
+        Vector3 spawnButin = new Vector3(_entity.transform.position.x + 2, _entity.transform.position.y, _entity.transform.position.z);
         Quaternion spawnButinRot = Quaternion.identity;
         foreach (var enemy_ in enemy)
         {
