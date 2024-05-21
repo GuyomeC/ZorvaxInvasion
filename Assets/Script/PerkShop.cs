@@ -11,17 +11,14 @@ public class PerkShop : MonoBehaviour
     [SerializeField] private GameObject NoEnoughMoney;
 
     public TextMeshProUGUI texteDash;
-    public string takeDash = "Dash";
     private bool takeDash1 = false;
     private bool takeDash2 = false;
     private bool takeDash3 = false;
     public TextMeshProUGUI texteTripleJump;
-    public string tripleJump = "Triple Jump";
     private bool tripleJump1 = false;
     private bool tripleJump2 = false;
     private bool tripleJump3 = false;
     public TextMeshProUGUI textehaveDashBas;
-    public string DashBasTexte = "Dash Bas";
     private bool DashBas1 = false;
     private bool DashBas2 = false;
     private bool DashBas3 = false;
@@ -43,6 +40,40 @@ public class PerkShop : MonoBehaviour
         } else
         {
             texteDash.text = "0/3";
+        }
+
+        if (tripleJump1 && tripleJump2 && tripleJump3)
+        {
+            texteTripleJump.text = "3/3";
+        }
+        else if ((tripleJump1 && tripleJump2) || (tripleJump2 && tripleJump3) || (tripleJump1 && tripleJump3))
+        {
+            texteTripleJump.text = "2/3";
+        }
+        else if (tripleJump1 || tripleJump2 || tripleJump3)
+        {
+            texteTripleJump.text = "1/3";
+        }
+        else
+        {
+            texteTripleJump.text = "0/3";
+        }
+
+        if (DashBas1 && DashBas2 && DashBas3)
+        {
+            textehaveDashBas.text = "3/3";
+        }
+        else if ((DashBas1 && DashBas2) || (DashBas2 && DashBas3) || (DashBas1 && DashBas3))
+        {
+            textehaveDashBas.text = "2/3";
+        }
+        else if (DashBas1 || DashBas2 || DashBas3)
+        {
+            textehaveDashBas.text = "1/3";
+        }
+        else
+        {
+            textehaveDashBas.text = "0/3";
         }
 
     }
