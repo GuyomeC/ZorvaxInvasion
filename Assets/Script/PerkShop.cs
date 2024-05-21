@@ -134,7 +134,8 @@ public class PerkShop : MonoBehaviour
         }
         else
         {
-            return;
+            NoEnoughMoney.GetComponent<Animator>().SetTrigger("NoEnoughMoney");
+
         }
     }
     public void tripleJumpNv2()
@@ -146,7 +147,8 @@ public class PerkShop : MonoBehaviour
         }
         else
         {
-            return;
+            NoEnoughMoney.GetComponent<Animator>().SetTrigger("NoEnoughMoney");
+
         }
     }
     public void tripleJumpNv3()
@@ -158,7 +160,8 @@ public class PerkShop : MonoBehaviour
         }
         else
         {
-            return;
+            NoEnoughMoney.GetComponent<Animator>().SetTrigger("NoEnoughMoney");
+
         }
     }
 
@@ -184,7 +187,8 @@ public class PerkShop : MonoBehaviour
         }
         else
         {
-            return;
+            NoEnoughMoney.GetComponent<Animator>().SetTrigger("NoEnoughMoney");
+
         }
     }
     public void BuyDashBasNv2()
@@ -196,7 +200,8 @@ public class PerkShop : MonoBehaviour
         }
         else
         {
-            return;
+            NoEnoughMoney.GetComponent<Animator>().SetTrigger("NoEnoughMoney");
+
         }
     }
     public void BuyDashBasNv3()
@@ -208,7 +213,8 @@ public class PerkShop : MonoBehaviour
         }
         else
         {
-            return;
+            NoEnoughMoney.GetComponent<Animator>().SetTrigger("NoEnoughMoney");
+
         }
     }
 
